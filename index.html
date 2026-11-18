@@ -138,7 +138,17 @@
     .mg-grid__card{position:relative;width:100%;height:100%;border-radius:2px;overflow:hidden;will-change:transform}
     .mg-grid__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
     .mg-grid__title{z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+    .mg-browser{position:absolute;top:2rem;left:2rem;right:2rem;bottom:-12px;display:flex;flex-direction:column;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 12px 40px rgba(0,0,0,.14)}
+    .mg-browser__bar{--bar:40px;position:relative;z-index:4;flex:none;height:var(--bar);display:flex;align-items:center;background:#fcfcfc;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+    .mg-browser__bar img{display:block;max-width:none}
+    .mg-browser__left,.mg-browser__right{height:100%;width:auto;flex:none}
+    .mg-browser__url{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:calc(var(--bar)*.2)}
+    .mg-browser__privacy{height:calc(var(--bar)*.38);width:auto;opacity:.85}
+    .mg-browser__pill{flex:0 1 26rem;min-width:0;height:calc(var(--bar)*.5);border-radius:calc(var(--bar)*.115);background:#eee;display:flex;align-items:center;justify-content:center;position:relative;padding:0 calc(var(--bar)*.5);font:500 calc(var(--bar)*.29)/1 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:rgba(0,0,0,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mg-browser__pill img{position:absolute;right:calc(var(--bar)*.18);top:50%;transform:translateY(-50%);height:calc(var(--bar)*.28);width:auto}
+    .mg-browser__view{position:relative;flex:1;min-height:0;overflow:hidden}
     @media screen and (max-width:479px){.mg-grid{--mg-item:112px;--mg-pad:10px}}
+    @media screen and (max-width:479px){.mg-browser{top:1rem;left:1rem;right:1rem}.mg-browser__bar{--bar:30px}.mg-browser__bar .mg-browser__right{display:none}.mg-browser__pill{margin-right:12px}.mg-browser__left{margin-right:-30px}}
     @keyframes mgPop{from{opacity:0;scale:.7}to{opacity:1;scale:1}}
     @media screen and (max-width:767px){.mg-slide{padding:1rem}.mg-case .info_wrap.is-active{display:flex;opacity:1}}
     @media (prefers-reduced-motion:reduce){.mg-case,.mg-slide,.mg-case .info_wrap{transition:none}.mg-slide.is-board.is-active *{animation:none!important;opacity:1!important}}
@@ -1001,6 +1011,13 @@ Cal("init", "15min", {origin:"https://app.cal.com"});
                         </div>
                       </div>
                       <div class="mg-slide is-grid" data-dur="7000">
+                        <div class="mg-browser">
+                        <div class="mg-browser__bar" aria-hidden="true">
+                          <img class="mg-browser__left" src="images/browser_left.svg" alt="">
+                          <div class="mg-browser__url"><img class="mg-browser__privacy" src="images/browser_privacy.svg" alt=""><span class="mg-browser__pill"><span>ristorantemaggese.it</span><img src="images/browser_refresh.svg" alt=""></span></div>
+                          <img class="mg-browser__right" src="images/browser_right.svg" alt="">
+                        </div>
+                        <div class="mg-browser__view">
                         <div class="mg-grid" data-mg-grid data-status="loading">
                           <div class="mg-grid__list">
                             <div class="mg-grid__item"><div class="mg-grid__card"><img src="images/maggese_dish-01.jpg" alt="Blue and white bowl with a dish in orange sauce and vegetables" loading="lazy" draggable="false"></div></div>
@@ -1021,6 +1038,8 @@ Cal("init", "15min", {origin:"https://app.cal.com"});
                         </div>
                         <div class="slide-header-wrap mg-grid__title">
                           <div class="slide_header">Development</div>
+                        </div>
+                        </div>
                         </div>
                       </div>
                     </div>
