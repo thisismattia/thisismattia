@@ -97,6 +97,17 @@
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="rVYJ3psy3ClcSQyG43ejmi-8t2v_KEbldIgJxyBpnZs" name="google-site-verification">
+  <style id="mg-style">
+    .mg-case{transform:scale(.9);transition:transform .5s cubic-bezier(.215,.61,.355,1)}
+    .mg-case.is-in{transform:scale(1)}
+    .mg-visuals{position:relative;overflow:hidden}
+    .mg-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;transition:opacity .5s ease}
+    .mg-slide.is-active{opacity:1}
+    .mg-slide img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 10px 30px rgba(17,12,40,.18)}
+    .mg-case .info_wrap{transition:opacity .4s ease}
+    @media screen and (max-width:767px){.mg-slide{padding:1rem}.mg-case .info_wrap.is-active{display:flex;opacity:1}}
+    @media (prefers-reduced-motion:reduce){.mg-case,.mg-slide,.mg-case .info_wrap{transition:none}}
+  </style>
 </head>
 <body class="body">
   <div class="page-wrapper">
@@ -793,13 +804,215 @@ Cal("init", "15min", {origin:"https://app.cal.com"});
       </div>
     </section>
     <section class="section_work-wrap">
+      <!-- Maggese case study: own slider (see mg-slider script), not Webflow IX -->
+      <div class="section_work">
+        <div class="grid_global is-work">
+          <div class="grid_item is-side is-left"></div>
+          <div class="mg-case" class="grid_item is-central is-work">
+            <div class="work_wrap">
+              <div class="highlight_capsule">
+                <div class="is-highlight-capsule">tiny case study 1/3</div>
+              </div>
+              <div class="case_wrap">
+                <div class="work-slider_wrap">
+                  <div class="slide_wrap">
+                    <div class="slide-visuals mg-visuals">
+                      <div class="mg-slide is-active"><img src="images/maggese_strategy.jpg" loading="lazy" width="1600" height="900" alt="Brand strategy slide mapping trademark classes for Chef Fabrizio Marino: product line, consultancy, education, restaurant and events."></div>
+                      <div class="mg-slide"><img src="images/maggese_design.jpg" loading="lazy" width="1600" height="900" alt="Website design project cover for Fabrizio Marino with style guide, grid system and sitemap."></div>
+                      <div class="mg-slide"><img src="images/maggese_live.jpg" loading="lazy" width="1200" height="630" alt="The live Ristorante Maggese website: 'Cucina. Agricola. Spontanea.' surrounded by dish photography."></div>
+                    </div>
+                    <div class="slide-info_wrap">
+                      <div class="info_wrap">
+                        <div class="slide_load-line">
+                          <div class="line_grey"></div>
+                          <div class="line-purple"></div>
+                        </div>
+                        <div class="global_info_wrap">
+                          <div class="w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 4L5 7L12 10L19 7L12 4Z" stroke="#6111EB" stroke-width="2" stroke-linejoin="round"></path>
+                              <path d="M19.3936 11.082C19.7612 11.2396 20 11.601 20 12.001C20 12.401 19.7612 12.7623 19.3936 12.9199L12.3936 15.9199C12.1421 16.0276 11.8578 16.0276 11.6064 15.9199L4.60645 12.9199C4.23877 12.7623 4.00002 12.401 4 12.001C4 11.601 4.23877 11.2396 4.60645 11.082L7.02539 10.0449L9.5625 11.1318L7.53711 12.001L12 13.9131L16.4619 12.001L14.4355 11.1318L16.9736 10.0449L19.3936 11.082Z" fill="#6111EB"></path>
+                              <path d="M19.3936 16.082C19.7612 16.2396 20 16.601 20 17.001C20 17.401 19.7612 17.7623 19.3936 17.9199L12.3936 20.9199C12.1421 21.0276 11.8578 21.0276 11.6064 20.9199L4.60645 17.9199C4.23877 17.7623 4.00002 17.401 4 17.001C4 16.601 4.23877 16.2396 4.60645 16.082L7.02539 15.0449L9.5625 16.1318L7.53711 17.001L12 18.9131L16.4619 17.001L14.4355 16.1318L16.9736 15.0449L19.3936 16.082Z" fill="#6111EB"></path>
+                            </svg></div>
+                          <div>Strategy &amp; Branding</div>
+                          <p class="p-tiny">We defined Maggese’s positioning and protected Chef Marino’s name as a brand across restaurant, products, consultancy and education.</p>
+                          <div class="highlight_capsule">
+                            <div class="is-highlight-capsule is-info">1/3</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="info_wrap is-shy">
+                        <div class="slide_load-line">
+                          <div class="line_grey"></div>
+                          <div class="line-purple"></div>
+                        </div>
+                        <div class="global_info_wrap">
+                          <div class="w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect x="4" y="16" width="16" height="4" rx="2" stroke="#6111EB" stroke-width="2" stroke-linecap="round"></rect>
+                              <path d="M4.90949 11.3642L8 16H16L19.0905 11.3642C19.5259 10.7112 19.7436 10.3847 19.7083 10.0289C19.6731 9.67311 19.3956 9.39561 18.8406 8.84062L12 2L5.15938 8.84062C4.60439 9.39561 4.32689 9.67311 4.29166 10.0289C4.25643 10.3847 4.47412 10.7112 4.90949 11.3642Z" stroke="#6111EB" stroke-width="2" stroke-linecap="round"></path>
+                              <circle cx="12" cy="11" r="2" stroke="#6111EB" stroke-width="2" stroke-linecap="round"></circle>
+                              <path d="M12 2V9" stroke="#6111EB" stroke-width="2" stroke-linecap="round"></path>
+                            </svg></div>
+                          <div>Web design</div>
+                          <p class="p-tiny">We designed a calm, editorial website that lets the food lead and makes booking a table the obvious next step.</p>
+                          <div class="highlight_capsule">
+                            <div class="is-highlight-capsule is-info">2/3</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="info_wrap is-shy">
+                        <div class="slide_load-line">
+                          <div class="line_grey"></div>
+                          <div class="line-purple"></div>
+                        </div>
+                        <div class="global_info_wrap">
+                          <div class="w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M16 7L20 12L16 17" stroke="#6111EB" stroke-width="2"></path>
+                              <path d="M8 7L4 12L8 17" stroke="#6111EB" stroke-width="2"></path>
+                            </svg></div>
+                          <div>Webflow dev</div>
+                          <p class="p-tiny">We built the site in Webflow for a fast launch, and so the team can keep menus and content up to date themselves.</p>
+                          <div class="highlight_capsule">
+                            <div class="is-highlight-capsule is-info">3/3</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="work_intro">
+                <div class="intro_wrap">
+                  <div class="intro_text">
+                    <h3>Ristorante Maggese</h3>
+                    <div class="spacer-small"></div>
+                    <p class="p-small is-normal">I partnered with Chef Fabrizio Marino to shape the <strong>brand strategy</strong> and <strong>website</strong> for Maggese, his vegetarian fine-dining restaurant in San Miniato, turning “cucina agricola spontanea” into an experience that fills tables.</p>
+                    <div class="spacer-small"></div>
+                    <div class="results_wrap">
+                      <div class="impact_capsule is-work">
+                        <div class="icon_arrow-price w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.5 10.1448C9.5 9.35328 8.44722 9.14348 8.16791 9.8841C7.49228 11.6756 7 13.2783 7 14.1447C7 16.9062 9.23858 19.1447 12 19.1447C14.7614 19.1447 17 16.9062 17 14.1447C17 13.2138 16.4318 11.4332 15.6784 9.48152C14.7026 6.95332 14.2146 5.68922 13.6123 5.62114C13.4196 5.59935 13.2093 5.63852 13.0374 5.72825C12.5 6.00866 12.5 7.38738 12.5 10.1448C12.5 10.9732 11.8284 11.6448 11 11.6448C10.1716 11.6448 9.5 10.9732 9.5 10.1448Z" stroke="url(#paint0_linear_3168_23408)" stroke-width="2"></path>
+                            <defs>
+                              <lineargradient id="paint0_linear_3168_23408" x1="12.3424" y1="19.1447" x2="19.2527" y2="11.6426" gradientunits="userSpaceOnUse">
+                                <stop stop-color="#523994"></stop>
+                                <stop offset="1" stop-color="#8A61FA"></stop>
+                              </lineargradient>
+                            </defs>
+                          </svg></div>
+                        <div>Conversion rate (CR)</div>
+                        <div class="impact-data_wrap is-stroked">
+                          <div class="arrow_impact-data">↑</div>
+                          <div>26%</div>
+                        </div>
+                      </div>
+                      <div class="impact_capsule is-work">
+                        <div class="icon_arrow-price w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.70117 17.454C9.63318 17.9921 10.6904 18.2754 11.7666 18.2754C12.8428 18.2754 13.9 17.9921 14.832 17.454C15.764 16.9159 16.538 16.142 17.0761 15.21C17.6142 14.278 17.8975 13.2207 17.8975 12.1445C17.8975 11.0683 17.6142 10.0111 17.0761 9.0791C16.538 8.14709 15.764 7.37315 14.832 6.83505C13.9 6.29696 12.8428 6.01367 11.7666 6.01367C10.6904 6.01367 9.63318 6.29696 8.70117 6.83505" stroke="url(#paint0_linear_3168_23411)" stroke-width="2"></path>
+                            <path d="M4.10254 12.1443L3.32167 11.5196L2.82191 12.1443L3.32167 12.769L4.10254 12.1443ZM10.9998 13.1443C11.552 13.1443 11.9998 12.6966 11.9998 12.1443C11.9998 11.592 11.552 11.1443 10.9998 11.1443V12.1443V13.1443ZM7.16797 8.3125L6.3871 7.6878L3.32167 11.5196L4.10254 12.1443L4.88341 12.769L7.94884 8.9372L7.16797 8.3125ZM4.10254 12.1443L3.32167 12.769L6.3871 16.6008L7.16797 15.9761L7.94884 15.3514L4.88341 11.5196L4.10254 12.1443ZM4.10254 12.1443V13.1443H10.9998V12.1443V11.1443H4.10254V12.1443Z" fill="url(#paint1_linear_3168_23411)"></path>
+                            <defs>
+                              <lineargradient id="paint0_linear_3168_23411" x1="11.3467" y1="18.2754" x2="5.50031" y2="9.68796" gradientunits="userSpaceOnUse">
+                                <stop stop-color="#523994"></stop>
+                                <stop offset="1" stop-color="#8A61FA"></stop>
+                              </lineargradient>
+                              <lineargradient id="paint1_linear_3168_23411" x1="7.78733" y1="15.9761" x2="11.5666" y2="10.9801" gradientunits="userSpaceOnUse">
+                                <stop stop-color="#523994"></stop>
+                                <stop offset="1" stop-color="#8A61FA"></stop>
+                              </lineargradient>
+                            </defs>
+                          </svg></div>
+                        <div>Bookings</div>
+                        <div class="impact-data_wrap is-stroked">
+                          <div class="arrow_impact-data">↑</div>
+                          <div>21%</div>
+                        </div>
+                      </div>
+                      <div class="impact_capsule is-work">
+                        <div class="icon_arrow-price w-embed"><svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.041 9.7207L13.764 13.1362C13.3381 13.7751 12.3809 13.7155 12.0375 13.0287L11.9624 12.8784C11.619 12.1916 10.6618 12.132 10.2359 12.7709L7.95888 16.1864" stroke="url(#paint0_linear_3168_23414)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <rect x="4.72607" y="4.87109" width="14.5479" height="14.5479" rx="2" stroke="url(#paint1_linear_3168_23414)" stroke-width="2"></rect>
+                            <defs>
+                              <lineargradient id="paint0_linear_3168_23414" x1="7.95888" y1="13.175" x2="12.7633" y2="17.2636" gradientunits="userSpaceOnUse">
+                                <stop stop-color="#523994"></stop>
+                                <stop offset="1" stop-color="#8A61FA"></stop>
+                              </lineargradient>
+                              <lineargradient id="paint1_linear_3168_23414" x1="12.4982" y1="19.4189" x2="19.4346" y2="9.23043" gradientunits="userSpaceOnUse">
+                                <stop stop-color="#523994"></stop>
+                                <stop offset="1" stop-color="#8A61FA"></stop>
+                              </lineargradient>
+                            </defs>
+                          </svg></div>
+                        <div>Cancellations</div>
+                        <div class="impact-data_wrap is-stroked">
+                          <div class="arrow_impact-data is-down">↑</div>
+                          <div>27%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="spacer-small"></div>
+                    <div class="div-block-31">
+                      <a href="https://www.ristorantemaggese.it/" target="_blank" class="btn_primary is-secondary is-work w-inline-block">
+                        <div class="btn-txt_wrap">
+                          <div class="btn-headingg-wrap is-work">
+                            <div class="txt-btn-primary is-work">Open Website</div>
+                            <div class="icon_circled-arrow is-btn w-embed"><svg viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                <path d="M3.6967 14.3033C4.74559 15.3522 6.08197 16.0665 7.53682 16.3559C8.99168 16.6453 10.4997 16.4968 11.8701 15.9291C13.2406 15.3614 14.4119 14.4001 15.236 13.1668C16.0601 11.9334 16.5 10.4834 16.5 9C16.5 7.51664 16.0601 6.06659 15.236 4.83322C14.4119 3.59986 13.2406 2.63856 11.8701 2.0709C10.4997 1.50325 8.99168 1.35472 7.53682 1.64411C6.08197 1.9335 4.74559 2.6478 3.6967 3.6967" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                                <path d="M11.25 9L12.0309 8.3753L12.5306 9L12.0309 9.6247L11.25 9ZM2.25 10C1.69772 10 1.25 9.55228 1.25 9C1.25 8.44772 1.69772 8 2.25 8V9V10ZM8.25 5.25L9.03087 4.6253L12.0309 8.3753L11.25 9L10.4691 9.6247L7.46913 5.8747L8.25 5.25ZM11.25 9L12.0309 9.6247L9.03087 13.3747L8.25 12.75L7.46913 12.1253L10.4691 8.3753L11.25 9ZM11.25 9V10H2.25V9V8H11.25V9Z" fill="currentColor"></path>
+                              </svg></div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="testimonial_work">
+                    <div class="testimonial_card is-work is-anne">
+                      <div class="testimonial-quote_wrap">
+                        <div class="stars_wrap">
+                          <div class="icon_star w-embed"><svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.60713 3.07226C6.08424 1.88284 6.32279 1.28813 6.71036 1.20571C6.81227 1.18403 6.91759 1.18403 7.0195 1.20571C7.40707 1.28813 7.64562 1.88284 8.12273 3.07226C8.39405 3.74866 8.52971 4.08686 8.78355 4.31689C8.85475 4.38141 8.93204 4.43887 9.01433 4.48847C9.30772 4.66531 9.67398 4.69811 10.4065 4.76371C11.6465 4.87476 12.2665 4.93029 12.4558 5.2838C12.495 5.35701 12.5217 5.43628 12.5347 5.51831C12.5975 5.91439 12.1417 6.32907 11.2301 7.15842L10.9769 7.38873C10.5508 7.77647 10.3377 7.97033 10.2144 8.21228C10.1405 8.35742 10.0909 8.51372 10.0677 8.67494C10.0289 8.94369 10.0913 9.22494 10.2161 9.78743L10.2607 9.9884C10.4845 10.9971 10.5965 11.5015 10.4568 11.7494C10.3313 11.9721 10.1002 12.1147 9.84483 12.1269C9.56059 12.1405 9.16009 11.8141 8.35908 11.1614C7.83135 10.7314 7.56748 10.5163 7.27456 10.4324C7.00687 10.3556 6.72299 10.3556 6.45531 10.4324C6.16238 10.5163 5.89851 10.7314 5.37078 11.1614C4.56977 11.8141 4.16927 12.1405 3.88503 12.1269C3.62971 12.1147 3.39858 11.9721 3.2731 11.7494C3.13341 11.5015 3.24531 10.9971 3.46912 9.9884L3.51371 9.78743C3.63851 9.22494 3.70091 8.94369 3.66219 8.67494C3.63896 8.51372 3.58939 8.35742 3.51545 8.21228C3.3922 7.97033 3.1791 7.77647 2.75292 7.38873L2.49978 7.15842C1.58819 6.32907 1.1324 5.91439 1.19517 5.51831C1.20817 5.43628 1.23483 5.35701 1.27404 5.2838C1.46337 4.93029 2.08337 4.87476 3.32338 4.76371C4.05588 4.69811 4.42214 4.66531 4.71553 4.48847C4.79782 4.43887 4.87511 4.38141 4.94631 4.31689C5.20015 4.08686 5.33581 3.74866 5.60713 3.07226Z" fill="#FBE67B" stroke="#FBE67B" stroke-width="2.37782"></path>
+                            </svg></div>
+                          <div class="icon_star w-embed"><svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.60713 3.07226C6.08424 1.88284 6.32279 1.28813 6.71036 1.20571C6.81227 1.18403 6.91759 1.18403 7.0195 1.20571C7.40707 1.28813 7.64562 1.88284 8.12273 3.07226C8.39405 3.74866 8.52971 4.08686 8.78355 4.31689C8.85475 4.38141 8.93204 4.43887 9.01433 4.48847C9.30772 4.66531 9.67398 4.69811 10.4065 4.76371C11.6465 4.87476 12.2665 4.93029 12.4558 5.2838C12.495 5.35701 12.5217 5.43628 12.5347 5.51831C12.5975 5.91439 12.1417 6.32907 11.2301 7.15842L10.9769 7.38873C10.5508 7.77647 10.3377 7.97033 10.2144 8.21228C10.1405 8.35742 10.0909 8.51372 10.0677 8.67494C10.0289 8.94369 10.0913 9.22494 10.2161 9.78743L10.2607 9.9884C10.4845 10.9971 10.5965 11.5015 10.4568 11.7494C10.3313 11.9721 10.1002 12.1147 9.84483 12.1269C9.56059 12.1405 9.16009 11.8141 8.35908 11.1614C7.83135 10.7314 7.56748 10.5163 7.27456 10.4324C7.00687 10.3556 6.72299 10.3556 6.45531 10.4324C6.16238 10.5163 5.89851 10.7314 5.37078 11.1614C4.56977 11.8141 4.16927 12.1405 3.88503 12.1269C3.62971 12.1147 3.39858 11.9721 3.2731 11.7494C3.13341 11.5015 3.24531 10.9971 3.46912 9.9884L3.51371 9.78743C3.63851 9.22494 3.70091 8.94369 3.66219 8.67494C3.63896 8.51372 3.58939 8.35742 3.51545 8.21228C3.3922 7.97033 3.1791 7.77647 2.75292 7.38873L2.49978 7.15842C1.58819 6.32907 1.1324 5.91439 1.19517 5.51831C1.20817 5.43628 1.23483 5.35701 1.27404 5.2838C1.46337 4.93029 2.08337 4.87476 3.32338 4.76371C4.05588 4.69811 4.42214 4.66531 4.71553 4.48847C4.79782 4.43887 4.87511 4.38141 4.94631 4.31689C5.20015 4.08686 5.33581 3.74866 5.60713 3.07226Z" fill="#FBE67B" stroke="#FBE67B" stroke-width="2.37782"></path>
+                            </svg></div>
+                          <div class="icon_star w-embed"><svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.60713 3.07226C6.08424 1.88284 6.32279 1.28813 6.71036 1.20571C6.81227 1.18403 6.91759 1.18403 7.0195 1.20571C7.40707 1.28813 7.64562 1.88284 8.12273 3.07226C8.39405 3.74866 8.52971 4.08686 8.78355 4.31689C8.85475 4.38141 8.93204 4.43887 9.01433 4.48847C9.30772 4.66531 9.67398 4.69811 10.4065 4.76371C11.6465 4.87476 12.2665 4.93029 12.4558 5.2838C12.495 5.35701 12.5217 5.43628 12.5347 5.51831C12.5975 5.91439 12.1417 6.32907 11.2301 7.15842L10.9769 7.38873C10.5508 7.77647 10.3377 7.97033 10.2144 8.21228C10.1405 8.35742 10.0909 8.51372 10.0677 8.67494C10.0289 8.94369 10.0913 9.22494 10.2161 9.78743L10.2607 9.9884C10.4845 10.9971 10.5965 11.5015 10.4568 11.7494C10.3313 11.9721 10.1002 12.1147 9.84483 12.1269C9.56059 12.1405 9.16009 11.8141 8.35908 11.1614C7.83135 10.7314 7.56748 10.5163 7.27456 10.4324C7.00687 10.3556 6.72299 10.3556 6.45531 10.4324C6.16238 10.5163 5.89851 10.7314 5.37078 11.1614C4.56977 11.8141 4.16927 12.1405 3.88503 12.1269C3.62971 12.1147 3.39858 11.9721 3.2731 11.7494C3.13341 11.5015 3.24531 10.9971 3.46912 9.9884L3.51371 9.78743C3.63851 9.22494 3.70091 8.94369 3.66219 8.67494C3.63896 8.51372 3.58939 8.35742 3.51545 8.21228C3.3922 7.97033 3.1791 7.77647 2.75292 7.38873L2.49978 7.15842C1.58819 6.32907 1.1324 5.91439 1.19517 5.51831C1.20817 5.43628 1.23483 5.35701 1.27404 5.2838C1.46337 4.93029 2.08337 4.87476 3.32338 4.76371C4.05588 4.69811 4.42214 4.66531 4.71553 4.48847C4.79782 4.43887 4.87511 4.38141 4.94631 4.31689C5.20015 4.08686 5.33581 3.74866 5.60713 3.07226Z" fill="#FBE67B" stroke="#FBE67B" stroke-width="2.37782"></path>
+                            </svg></div>
+                          <div class="icon_star w-embed"><svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.60713 3.07226C6.08424 1.88284 6.32279 1.28813 6.71036 1.20571C6.81227 1.18403 6.91759 1.18403 7.0195 1.20571C7.40707 1.28813 7.64562 1.88284 8.12273 3.07226C8.39405 3.74866 8.52971 4.08686 8.78355 4.31689C8.85475 4.38141 8.93204 4.43887 9.01433 4.48847C9.30772 4.66531 9.67398 4.69811 10.4065 4.76371C11.6465 4.87476 12.2665 4.93029 12.4558 5.2838C12.495 5.35701 12.5217 5.43628 12.5347 5.51831C12.5975 5.91439 12.1417 6.32907 11.2301 7.15842L10.9769 7.38873C10.5508 7.77647 10.3377 7.97033 10.2144 8.21228C10.1405 8.35742 10.0909 8.51372 10.0677 8.67494C10.0289 8.94369 10.0913 9.22494 10.2161 9.78743L10.2607 9.9884C10.4845 10.9971 10.5965 11.5015 10.4568 11.7494C10.3313 11.9721 10.1002 12.1147 9.84483 12.1269C9.56059 12.1405 9.16009 11.8141 8.35908 11.1614C7.83135 10.7314 7.56748 10.5163 7.27456 10.4324C7.00687 10.3556 6.72299 10.3556 6.45531 10.4324C6.16238 10.5163 5.89851 10.7314 5.37078 11.1614C4.56977 11.8141 4.16927 12.1405 3.88503 12.1269C3.62971 12.1147 3.39858 11.9721 3.2731 11.7494C3.13341 11.5015 3.24531 10.9971 3.46912 9.9884L3.51371 9.78743C3.63851 9.22494 3.70091 8.94369 3.66219 8.67494C3.63896 8.51372 3.58939 8.35742 3.51545 8.21228C3.3922 7.97033 3.1791 7.77647 2.75292 7.38873L2.49978 7.15842C1.58819 6.32907 1.1324 5.91439 1.19517 5.51831C1.20817 5.43628 1.23483 5.35701 1.27404 5.2838C1.46337 4.93029 2.08337 4.87476 3.32338 4.76371C4.05588 4.69811 4.42214 4.66531 4.71553 4.48847C4.79782 4.43887 4.87511 4.38141 4.94631 4.31689C5.20015 4.08686 5.33581 3.74866 5.60713 3.07226Z" fill="#FBE67B" stroke="#FBE67B" stroke-width="2.37782"></path>
+                            </svg></div>
+                          <div class="icon_star w-embed"><svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.60713 3.07226C6.08424 1.88284 6.32279 1.28813 6.71036 1.20571C6.81227 1.18403 6.91759 1.18403 7.0195 1.20571C7.40707 1.28813 7.64562 1.88284 8.12273 3.07226C8.39405 3.74866 8.52971 4.08686 8.78355 4.31689C8.85475 4.38141 8.93204 4.43887 9.01433 4.48847C9.30772 4.66531 9.67398 4.69811 10.4065 4.76371C11.6465 4.87476 12.2665 4.93029 12.4558 5.2838C12.495 5.35701 12.5217 5.43628 12.5347 5.51831C12.5975 5.91439 12.1417 6.32907 11.2301 7.15842L10.9769 7.38873C10.5508 7.77647 10.3377 7.97033 10.2144 8.21228C10.1405 8.35742 10.0909 8.51372 10.0677 8.67494C10.0289 8.94369 10.0913 9.22494 10.2161 9.78743L10.2607 9.9884C10.4845 10.9971 10.5965 11.5015 10.4568 11.7494C10.3313 11.9721 10.1002 12.1147 9.84483 12.1269C9.56059 12.1405 9.16009 11.8141 8.35908 11.1614C7.83135 10.7314 7.56748 10.5163 7.27456 10.4324C7.00687 10.3556 6.72299 10.3556 6.45531 10.4324C6.16238 10.5163 5.89851 10.7314 5.37078 11.1614C4.56977 11.8141 4.16927 12.1405 3.88503 12.1269C3.62971 12.1147 3.39858 11.9721 3.2731 11.7494C3.13341 11.5015 3.24531 10.9971 3.46912 9.9884L3.51371 9.78743C3.63851 9.22494 3.70091 8.94369 3.66219 8.67494C3.63896 8.51372 3.58939 8.35742 3.51545 8.21228C3.3922 7.97033 3.1791 7.77647 2.75292 7.38873L2.49978 7.15842C1.58819 6.32907 1.1324 5.91439 1.19517 5.51831C1.20817 5.43628 1.23483 5.35701 1.27404 5.2838C1.46337 4.93029 2.08337 4.87476 3.32338 4.76371C4.05588 4.69811 4.42214 4.66531 4.71553 4.48847C4.79782 4.43887 4.87511 4.38141 4.94631 4.31689C5.20015 4.08686 5.33581 3.74866 5.60713 3.07226Z" fill="#FBE67B" stroke="#FBE67B" stroke-width="2.37782"></path>
+                            </svg></div>
+                        </div>
+                        <div class="quote_wrap is-desktop">
+                          <div>Mattia understood Maggese from the very first conversation: our kitchen, our producers, our way of welcoming guests. He turned it into <strong>a brand and a website that feel like us</strong>, and our <strong>guests now book with confidence</strong>.</div>
+                        </div>
+                        <div class="quote_wrap is-mobile">
+                          <div>Mattia turned Maggese into <strong>a brand and a website that feel like us</strong>.</div>
+                        </div>
+                      </div>
+                      <div class="testimonial-founder_wrap"><img src="images/client_fabrizio.jpg" loading="lazy" width="400" height="400" alt="Black and white photo of Chef Fabrizio Marino plating a dish in the Maggese kitchen." class="img_clients is-anne">
+                        <div class="test-data_wrap">
+                          <div><strong>Fabrizio Marino</strong></div>
+                          <div class="test-title_wrap">
+                            <div>Chef &amp; Founder <span class="purple_highlight">Maggese</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid_item is-side is-right"></div>
+        </div>
+      </div>
       <div class="section_work">
         <div class="grid_global is-work">
           <div class="grid_item is-side is-left"></div>
           <div data-w-id="7c83b246-8d62-e7b7-61f0-fc31a624a70d" style="-webkit-transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="grid_item is-central is-work">
             <div class="work_wrap">
               <div class="highlight_capsule">
-                <div class="is-highlight-capsule">tiny case study 1/2</div>
+                <div class="is-highlight-capsule">tiny case study 2/3</div>
               </div>
               <div class="case_wrap">
                 <div class="work-slider_wrap">
@@ -1178,7 +1391,7 @@ Cal("init", "15min", {origin:"https://app.cal.com"});
           <div data-w-id="61e54dc9-1e37-442a-fd44-49bc5ebcae01" style="-webkit-transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.9, 0.9, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="grid_item is-central is-work">
             <div class="work_wrap">
               <div class="highlight_capsule">
-                <div class="is-highlight-capsule">tiny case studY 2/2</div>
+                <div class="is-highlight-capsule">tiny case study 3/3</div>
               </div>
               <div class="case_wrap">
                 <div class="work-slider_wrap">
@@ -2205,5 +2418,32 @@ window.Webflow.push(() => {
   overflow :hidden !important;
 }
 </style>
+  <script id="mg-slider">
+  (function(){
+    var root=document.querySelector('.mg-case'); if(!root) return;
+    var slides=root.querySelectorAll('.mg-slide'), infos=root.querySelectorAll('.info_wrap');
+    var DUR=4500, i=0, t0=null, running=false, raf;
+    function show(n){
+      i=n;
+      slides.forEach(function(s,k){s.classList.toggle('is-active',k===n);});
+      infos.forEach(function(el,k){el.classList.toggle('is-shy',k!==n);el.classList.toggle('is-active',k===n);
+        var l=el.querySelector('.line-purple'); if(l) l.style.height=(k<n?'100%':'0%');});
+    }
+    function tick(ts){
+      if(!running) return;
+      if(t0===null) t0=ts;
+      var p=Math.min((ts-t0)/DUR,1), l=infos[i]&&infos[i].querySelector('.line-purple');
+      if(l) l.style.height=(p*100)+'%';
+      if(p>=1){ t0=ts; show((i+1)%slides.length); }
+      raf=requestAnimationFrame(tick);
+    }
+    show(0);
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){root.classList.add('is-in'); if(!running){running=true;t0=null;raf=requestAnimationFrame(tick);}}
+      else{root.classList.remove('is-in'); running=false; cancelAnimationFrame(raf);}
+    });},{threshold:.25});
+    io.observe(root);
+  })();
+  </script>
 </body>
 </html>
