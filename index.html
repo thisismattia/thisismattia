@@ -107,13 +107,26 @@
     .mg-case .info_wrap{transition:opacity .4s ease}
     .mg-slide.is-board{padding:0;align-items:stretch;justify-content:stretch}
     .mg-board{display:flex!important}
-    .mg-slide.is-board .sticker,.mg-slide.is-board .user_wrap,.mg-slide.is-board .w-embed,.mg-slide.is-board .slide-header-wrap{opacity:0}
-    .mg-slide.is-board.is-active .sticker,.mg-slide.is-board.is-active .user_wrap,.mg-slide.is-board.is-active .w-embed,.mg-slide.is-board.is-active .slide-header-wrap{animation:mgPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+    .mg-slide.is-board .sticker,.mg-slide.is-board .user_wrap,.mg-slide.is-board .w-embed,.mg-slide.is-board .slide-header-wrap,.mg-slide.is-board .mg-shot{opacity:0}
+    .mg-slide.is-board.is-active .sticker,.mg-slide.is-board.is-active .user_wrap,.mg-slide.is-board.is-active .w-embed,.mg-slide.is-board.is-active .slide-header-wrap,.mg-slide.is-board.is-active .mg-shot{animation:mgPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
     .mg-slide.is-board.is-active .slide-header-wrap{animation-delay:.05s}
     .mg-slide.is-board.is-active .genki-1-top .sticker{animation-delay:.25s}
     .mg-slide.is-board.is-active .genki-1-bottom .sticker{animation-delay:.45s}
     .mg-slide.is-board.is-active .user_wrap{animation-delay:.7s}
     .mg-slide.is-board.is-active .w-embed{animation-delay:.9s}
+    .mg-collage .mg-shot{border-radius:6px;display:block;max-width:100%;height:auto}
+    .mg-slide.is-board.is-active .genki-2-top-left .mg-shot{animation-delay:.15s}
+    .mg-slide.is-board.is-active .genki-2-top-right .mg-shot{animation-delay:.3s}
+    .mg-slide.is-board.is-active .genki-2-bottom-left .mg-shot{animation-delay:.45s}
+    .mg-slide.is-board.is-active .genki-2-bottom-center .mg-shot{animation-delay:.6s}
+    .mg-slide.is-board.is-active .genki-2-bottom-right .mg-shot{animation-delay:.75s}
+    @media screen and (min-width:480px){
+      .mg-collage .genki-2-top-left{transform:rotate(-6deg);margin-top:-.5rem;margin-left:-2.5rem}
+      .mg-collage .genki-2-top-right{transform:rotate(8deg);margin-bottom:3.5rem;margin-right:-3rem}
+      .mg-collage .genki-2-bottom-left{transform:rotate(6deg);margin-top:-1rem;margin-left:-5.5rem;margin-right:5rem}
+      .mg-collage .genki-2-bottom-center{transform:rotate(-2.5deg);margin-top:.75rem}
+      .mg-collage .genki-2-bottom-right{transform:rotate(-8deg);margin-top:-3.5rem;margin-left:5rem;margin-right:-4rem}
+    }
     @keyframes mgPop{from{opacity:0;scale:.7}to{opacity:1;scale:1}}
     @media screen and (max-width:767px){.mg-slide{padding:1rem}.mg-case .info_wrap.is-active{display:flex;opacity:1}}
     @media (prefers-reduced-motion:reduce){.mg-case,.mg-slide,.mg-case .info_wrap{transition:none}.mg-slide.is-board.is-active *{animation:none!important;opacity:1!important}}
@@ -957,7 +970,24 @@ Cal("init", "15min", {origin:"https://app.cal.com"});
                         </div>
                       </div>
                       </div>
-                      <div class="mg-slide"><img src="images/maggese_design.jpg" loading="lazy" width="1600" height="900" alt="Website design project cover for Fabrizio Marino with style guide, grid system and sitemap."></div>
+                      <div class="mg-slide is-board">
+                        <div class="genki-slide-2 mg-board mg-collage">
+                          <div class="genki-2-top">
+                            <div class="genki-2-top-left"><img src="images/maggese_design-1.jpg" loading="lazy" width="300" height="188" alt="Ristorante Maggese page with the heading Laboratorio vegetale and a photo of the dining room." class="mg-shot"></div>
+                            <div class="genki-2-top-right"><img src="images/maggese_design-2.jpg" loading="lazy" width="300" height="188" alt="Maggese chef page with Chef Fabrizio Marino plating a dish and a Prenota tavolo button." class="mg-shot"></div>
+                          </div>
+                          <div class="genki-2-mid">
+                            <div class="slide-header-wrap">
+                              <div class="slide_header">Design</div>
+                            </div>
+                          </div>
+                          <div class="genki-2-bottom">
+                            <div class="genki-2-bottom-left"><img src="images/maggese_design-3.jpg" loading="lazy" width="200" height="125" alt="Maggese Produttori page, Custodi del territorio, with a local shop front." class="genki-slide-2_img mg-shot"></div>
+                            <div class="genki-2-bottom-center"><img src="images/maggese_design-4.jpg" loading="lazy" width="300" height="188" alt="Maggese restaurant hero: a dark, candle-lit dining room with flowers on the tables." class="genki-slide-2_img mg-shot"></div>
+                            <div class="genki-2-bottom-right"><img src="images/maggese_design-5.jpg" loading="lazy" width="200" height="125" alt="Maggese producers section with portraits of local farmers and suppliers." class="genki-slide-2_img mg-shot"></div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="mg-slide"><img src="images/maggese_live.jpg" loading="lazy" width="1200" height="630" alt="The live Ristorante Maggese website: 'Cucina. Agricola. Spontanea.' surrounded by dish photography."></div>
                     </div>
                     <div class="slide-info_wrap">
