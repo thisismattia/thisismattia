@@ -1000,7 +1000,7 @@ Cal("init", "15min", {origin:"https://app.cal.com"});
                           </div>
                         </div>
                       </div>
-                      <div class="mg-slide is-grid">
+                      <div class="mg-slide is-grid" data-dur="7000">
                         <div class="mg-grid" data-mg-grid data-status="loading">
                           <div class="mg-grid__list">
                             <div class="mg-grid__item"><div class="mg-grid__card"><img src="images/maggese_dish-01.jpg" alt="Blue and white bowl with a dish in orange sauce and vegetables" loading="lazy" draggable="false"></div></div>
@@ -2628,11 +2628,11 @@ window.Webflow.push(() => {
     var originals=[].slice.call(list.children).map(function(n){return n.cloneNode(true);});
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // same feel as the Maggese hero grid
-    var OVERSCAN=1, START_OFFSET_Y=.33, POS_LERP=.05, SPEEDS=[1,1,.9], MIN_SCALE=.5, SCALE_LERP=.02;
+    var OVERSCAN=1, START_OFFSET_Y=.33, POS_LERP=.025, SPEEDS=[1,1,.9], MIN_SCALE=.5, SCALE_LERP=.02;
     // scripted "drag": velocity in px per frame (60fps) for each move
     var MOVES=[
-      {at:250,  dur:1100, vx:-14, vy:-9},  // right to left, and up
-      {at:1700, dur:900,  vx:9,   vy:-4}   // back to the right, still up but less
+      {at:200,  dur:1700, vx:-3.5, vy:-2.25},  // right to left, and up
+      {at:3900, dur:1300, vx:2.25, vy:-1}      // pause, then back to the right, still up but less
     ];
     var cards=[], cardEls=[], size={}, pos={}, sc={c:1,t:1}, raf=null, running=false, last=null, t0=null;
     function wrapV(v,s){return((v%s)+s)%s;}
@@ -2687,8 +2687,9 @@ window.Webflow.push(() => {
       var f=last===null?1:Math.min((ts-last)/16.67,3), t=ts-t0, moving=false; last=ts;
       MOVES.forEach(function(m){
         if(t>=m.at && t<m.at+m.dur){
-          moving=true; pos.tx+=m.vx*f; pos.ty+=m.vy*f;
-          var strength=Math.min(1,Math.max(Math.abs(m.vx),Math.abs(m.vy))*3/80);
+          var e=Math.sin(Math.PI*(t-m.at)/m.dur); // ease in and out of each move
+          moving=true; pos.tx+=m.vx*e*f; pos.ty+=m.vy*e*f;
+          var strength=Math.min(1,Math.max(Math.abs(m.vx),Math.abs(m.vy))*e*3/80);
           sc.t=1+(MIN_SCALE-1)*strength;
         }
       });
@@ -2722,7 +2723,7 @@ window.Webflow.push(() => {
     function tick(ts){
       if(!running) return;
       if(t0===null) t0=ts;
-      var p=Math.min((ts-t0)/DUR,1), l=infos[i]&&infos[i].querySelector('.mg-line');
+      var d=+slides[i].getAttribute('data-dur')||DUR, p=Math.min((ts-t0)/d,1), l=infos[i]&&infos[i].querySelector('.mg-line');
       if(l) l.style.height=(p*100)+'%';
       if(p>=1){ t0=ts; show((i+1)%slides.length); }
       raf=requestAnimationFrame(tick);
