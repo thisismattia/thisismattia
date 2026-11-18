@@ -122,16 +122,17 @@
     .mg-slide.is-board.is-active .genki-2-bottom-center .mg-shot{animation-delay:.6s}
     .mg-slide.is-board.is-active .genki-2-bottom-right .mg-shot{animation-delay:.75s}
     @media screen and (min-width:480px){
-      .mg-collage .genki-2-top-left{transform:rotate(-6deg);margin-top:-.5rem;margin-left:-2.5rem}
-      .mg-collage .genki-2-top-right{transform:rotate(8deg);margin-bottom:3.5rem;margin-right:-3rem}
-      .mg-collage .genki-2-bottom-left{transform:rotate(6deg);margin-top:-1rem;margin-left:-5.5rem;margin-right:5rem}
-      .mg-collage .genki-2-bottom-center{transform:rotate(-2.5deg);margin-top:.75rem}
-      .mg-collage .genki-2-bottom-right{transform:rotate(-8deg);margin-top:-3.5rem;margin-left:5rem;margin-right:-4rem}
+      .mg-collage .genki-2-top-left{transform:rotate(-6deg);margin-top:-1rem;margin-left:-3rem}
+      .mg-collage .genki-2-top-right{transform:rotate(8deg);margin-bottom:4rem;margin-right:-3.5rem}
+      .mg-collage .genki-2-top-left .mg-shot,.mg-collage .genki-2-top-right .mg-shot{width:400px;max-width:none}
+      .mg-collage .genki-2-bottom{align-items:flex-start}
+      .mg-collage .genki-2-bottom-left{width:44%;transform:rotate(6deg);margin-top:1.25rem;margin-left:-6rem;margin-right:3rem}
+      .mg-collage .genki-2-bottom-center{width:50%;transform:rotate(-2.5deg);margin-top:2rem}
+      .mg-collage .genki-2-bottom-right{width:44%;transform:rotate(-8deg);margin-top:0;margin-left:3rem;margin-right:-5rem}
     }
     .mg-slide.is-grid{padding:0;display:block}
-    .mg-grid{--mg-item:150px;--mg-pad:18px;position:absolute;inset:0;overflow:hidden;cursor:grab;touch-action:pan-y;transition:opacity .5s ease;user-select:none;-webkit-user-select:none}
+    .mg-grid{--mg-item:150px;--mg-pad:18px;position:absolute;inset:0;overflow:hidden;pointer-events:none;transition:opacity .5s ease}
     .mg-grid[data-status=loading]{opacity:0}
-    .mg-grid[data-status=dragging]{cursor:grabbing}
     .mg-grid__list{position:absolute;inset:0}
     .mg-grid__item{position:absolute;top:0;left:0;width:var(--mg-item);aspect-ratio:1;padding:var(--mg-pad);display:flex;will-change:transform;backface-visibility:hidden}
     .mg-grid__card{position:relative;width:100%;height:100%;border-radius:2px;overflow:hidden;will-change:transform}
@@ -2626,10 +2627,14 @@ window.Webflow.push(() => {
     var slide=wrap.closest('.mg-slide'), list=wrap.querySelector('.mg-grid__list');
     var originals=[].slice.call(list.children).map(function(n){return n.cloneNode(true);});
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // tuned like the Maggese hero
-    var DRAG=3, OVERSCAN=1, START_OFFSET_Y=.33, POS_LERP=.05, X_TO_Y=.2, SPEEDS=[1,1,.9], MIN_SCALE=.5, SCALE_LERP=.02;
-    var DRIFT_X=reduce?0:-.18, DRIFT_Y=reduce?0:-.42; // gentle auto-drift, px per frame
-    var cards=[], cardEls=[], size={}, pos={}, sc={c:1,t:1}, raf=null, running=false, scaleTimer, last=null;
+    // same feel as the Maggese hero grid
+    var OVERSCAN=1, START_OFFSET_Y=.33, POS_LERP=.05, SPEEDS=[1,1,.9], MIN_SCALE=.5, SCALE_LERP=.02;
+    // scripted "drag": velocity in px per frame (60fps) for each move
+    var MOVES=[
+      {at:250,  dur:1100, vx:-14, vy:-9},  // right to left, and up
+      {at:1700, dur:900,  vx:9,   vy:-4}   // back to the right, still up but less
+    ];
+    var cards=[], cardEls=[], size={}, pos={}, sc={c:1,t:1}, raf=null, running=false, last=null, t0=null;
     function wrapV(v,s){return((v%s)+s)%s;}
     function indexes(cols,rows){
       var total=originals.length, idx=[], used=[], cells=[], cc=Math.floor(cols/2), cr=Math.floor(rows/2), r, c;
@@ -2665,10 +2670,10 @@ window.Webflow.push(() => {
       }
       list.appendChild(frag);
       pos.sx=W*.5-cc*size.w-size.w*.5; pos.sy=H*.5-cr*size.h-size.h*.5;
-      pos.x=pos.tx=pos.sx; pos.y=pos.ty=pos.sy; sc.c=sc.t=1;
-      render(); requestAnimationFrame(function(){wrap.setAttribute('data-status','idle');});
+      requestAnimationFrame(function(){wrap.setAttribute('data-status','idle');});
       return true;
     }
+    function reset(){ pos.x=pos.tx=pos.sx; pos.y=pos.ty=pos.sy; sc.c=sc.t=1; render(); }
     function render(){
       var ox=size.w*OVERSCAN, oy=size.h*OVERSCAN, dy=pos.y-pos.sy;
       for(var i=0;i<cards.length;i++){var k=cards[i];
@@ -2678,32 +2683,25 @@ window.Webflow.push(() => {
     }
     function frame(ts){
       if(!running) return;
-      var f=last===null?1:Math.min((ts-last)/16.67,3); last=ts;
-      if(wrap.getAttribute('data-status')!=='dragging'){pos.tx+=DRIFT_X*f; pos.ty+=DRIFT_Y*f+DRIFT_X*X_TO_Y*f;}
+      if(t0===null) t0=ts;
+      var f=last===null?1:Math.min((ts-last)/16.67,3), t=ts-t0, moving=false; last=ts;
+      MOVES.forEach(function(m){
+        if(t>=m.at && t<m.at+m.dur){
+          moving=true; pos.tx+=m.vx*f; pos.ty+=m.vy*f;
+          var strength=Math.min(1,Math.max(Math.abs(m.vx),Math.abs(m.vy))*3/80);
+          sc.t=1+(MIN_SCALE-1)*strength;
+        }
+      });
+      if(!moving) sc.t=1;
       pos.x+=(pos.tx-pos.x)*POS_LERP*f; pos.y+=(pos.ty-pos.y)*POS_LERP*f; sc.c+=(sc.t-sc.c)*SCALE_LERP*f;
       render(); raf=requestAnimationFrame(frame);
     }
-    function start(){ if(running) return; running=true; last=null; raf=requestAnimationFrame(frame); }
+    function start(){ stop(); reset(); if(reduce) return; running=true; last=null; t0=null; raf=requestAnimationFrame(frame); }
     function stop(){ running=false; cancelAnimationFrame(raf); }
-    function nudge(dx,dy){ // same response as a drag on the Maggese hero
-      dx=Math.max(-80,Math.min(80,dx*DRAG)); dy=Math.max(-80,Math.min(80,dy*DRAG));
-      var strength=Math.min(1,Math.max(Math.abs(dx),Math.abs(dy))/80);
-      sc.t=1+(MIN_SCALE-1)*strength; clearTimeout(scaleTimer); scaleTimer=setTimeout(function(){sc.t=1;},120);
-      pos.tx+=dx; pos.ty+=dy+dx*X_TO_Y;
-    }
-    // drag (mouse + touch); vertical touch still scrolls the page
-    var px=null, py=null, root=wrap.closest('.mg-case');
-    wrap.addEventListener('pointerdown',function(e){px=e.clientX;py=e.clientY;wrap.setAttribute('data-status','dragging');if(root)root.dataset.hold='1';try{wrap.setPointerCapture(e.pointerId);}catch(_){}});
-    wrap.addEventListener('pointermove',function(e){if(px===null)return;var dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;if(Math.abs(dx)+Math.abs(dy)>0)nudge(dx/3,dy/3);});
-    function end(){px=null;wrap.setAttribute('data-status','idle');sc.t=1;if(root)delete root.dataset.hold;}
-    wrap.addEventListener('pointerup',end); wrap.addEventListener('pointercancel',end); wrap.addEventListener('lostpointercapture',end);
-    // run only while this slide is showing; glide in like the landing on Maggese
     var built=false;
     function sync(){
-      if(slide.classList.contains('is-active')){
-        if(!built) built=build();
-        if(built){ if(!reduce) nudge(-12,-26); start(); }
-      } else stop();
+      if(slide.classList.contains('is-active')){ if(!built) built=build(); if(built) start(); }
+      else stop();
     }
     new MutationObserver(sync).observe(slide,{attributes:true,attributeFilter:['class']});
     var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){built=false;sync();},200);});
@@ -2714,7 +2712,7 @@ window.Webflow.push(() => {
   (function(){
     var root=document.querySelector('.mg-case'); if(!root) return;
     var slides=root.querySelectorAll('.mg-slide'), infos=root.querySelectorAll('.info_wrap');
-    var DUR=4500, i=0, t0=null, running=false, raf, prevP=0;
+    var DUR=4500, i=0, t0=null, running=false, raf;
     function show(n){
       i=n;
       slides.forEach(function(s,k){s.classList.toggle('is-active',k===n);});
@@ -2724,9 +2722,7 @@ window.Webflow.push(() => {
     function tick(ts){
       if(!running) return;
       if(t0===null) t0=ts;
-      if(root.dataset.hold){ t0=ts-(prevP||0)*DUR; raf=requestAnimationFrame(tick); return; }
       var p=Math.min((ts-t0)/DUR,1), l=infos[i]&&infos[i].querySelector('.mg-line');
-      prevP=p;
       if(l) l.style.height=(p*100)+'%';
       if(p>=1){ t0=ts; show((i+1)%slides.length); }
       raf=requestAnimationFrame(tick);
