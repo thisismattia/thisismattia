@@ -2,13 +2,13 @@
 <path d="M16.041 9.7207L13.764 13.1362C13.3381 13.7751 12.3809 13.7155 12.0375 13.0287L11.9624 12.8784C11.619 12.1916 10.6618 12.132 10.2359 12.7709L7.95888 16.1864" stroke="url(#paint0_linear_3168_23414)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 <rect height="14.5479" rx="2" stroke="url(#paint1_linear_3168_23414)" stroke-width="2" width="14.5479" x="4.72607" y="4.87109"></rect>
 <defs>
-<lineargradient gradientUnits="userSpaceOnUse" id="paint0_linear_3168_23414" x1="7.95888" x2="12.7633" y1="13.175" y2="17.2636">
+<linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_3168_23414" x1="7.95888" x2="12.7633" y1="13.175" y2="17.2636">
 <stop stop-color="#523994"></stop>
 <stop offset="1" stop-color="#8A61FA"></stop>
-</lineargradient>
-<lineargradient gradientUnits="userSpaceOnUse" id="paint1_linear_3168_23414" x1="12.4982" x2="19.4346" y1="19.4189" y2="9.23043">
+</linearGradient>
+<linearGradient gradientUnits="userSpaceOnUse" id="paint1_linear_3168_23414" x1="12.4982" x2="19.4346" y1="19.4189" y2="9.23043">
 <stop stop-color="#523994"></stop>
 <stop offset="1" stop-color="#8A61FA"></stop>
-</lineargradient>
+</linearGradient>
 </defs>
 </svg>

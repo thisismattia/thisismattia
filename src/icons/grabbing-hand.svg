@@ -15,8 +15,8 @@
 <feblend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_3336_21305">
 <feblend in="SourceGraphic" in2="effect1_dropShadow_3336_21305" mode="normal" result="shape">
 </feblend></feblend></fecolormatrix></fegaussianblur></feoffset></fecolormatrix></feflood></filter>
-<clippath id="clip0_3336_21305">
+<clipPath id="clip0_3336_21305">
 <rect fill="white" height="32" transform="translate(0.34375 7.34375) rotate(-12.5144)" width="32"></rect>
-</clippath>
+</clipPath>
 </defs>
 </svg>
