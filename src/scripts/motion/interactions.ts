@@ -394,8 +394,6 @@ export const interactions: Interaction[] = [
       {"t": "[data-ix=\"grid-item-side-right-hero\"]", "at": 0.05, "e": "expo.out", "tt": "fromTo", "p": {"x": ["100%", "0%"], "opacity": [0.0, 1.0]}},
       {"t": "[data-ix=\"grid-item-side-right-top\"]", "at": 0.05, "e": "expo.out", "tt": "fromTo", "p": {"x": ["100%", "0%"], "y": ["-100%", "0%"]}},
       {"t": "[data-ix=\"grid-item-central-top-nav-flex\"]", "at": 0.05, "e": "expo.out", "tt": "fromTo", "p": {"y": ["-100%", "0%"]}},
-      {"t": ".grid_item.is-central.is-pattern", "at": 0, "d": 0, "p": {"display": [null, "none"]}},
-      {"t": ".grid_item.is-central.is-pattern", "at": 0.1, "d": 0.05, "p": {"display": [null, "flex"]}},
       {"t": ".client_wrapper", "at": 0.3, "d": 0.05, "tt": "fromTo", "p": {"opacity": [0.0, 1.0]}},
       {"t": ".grid_item.is-central.is-pattern", "at": 0, "d": 0.1, "tt": "fromTo", "p": {"opacity": [0.0, 1.0]}},
       {"t": ".arrow_impact-data.is-hero", "at": 0, "p": {"display": [null, "none"]}}
@@ -552,8 +550,6 @@ export const interactions: Interaction[] = [
       {"t": "[data-ix=\"grid-item-side-right-hero\"]", "at": 0.05, "e": "expo.out", "tt": "fromTo", "p": {"x": ["100%", "0%"], "opacity": [0.0, 1.0]}},
       {"t": "[data-ix=\"grid-item-side-right-top\"]", "at": 0.05, "e": "expo.out", "tt": "fromTo", "p": {"x": ["100%", "0%"], "y": ["-100%", "0%"]}},
       {"t": "[data-ix=\"grid-item-central-top-nav-flex\"]", "at": 0.05, "e": "expo.out", "tt": "fromTo", "p": {"y": ["-100%", "0%"]}},
-      {"t": ".grid_item.is-central.is-pattern", "at": 0, "d": 0, "p": {"display": [null, "none"]}},
-      {"t": ".grid_item.is-central.is-pattern", "at": 0.1, "d": 0.05, "p": {"display": [null, "flex"]}},
       {"t": ".client_wrapper", "at": 0.3, "d": 0.05, "tt": "fromTo", "p": {"opacity": [0.0, 1.0]}},
       {"t": ".grid_item.is-central.is-pattern", "at": 0, "d": 0.1, "tt": "fromTo", "p": {"opacity": [0.0, 1.0]}},
       {"t": ".arrow_impact-data.is-hero", "at": 0, "p": {"display": [null, "none"]}}
