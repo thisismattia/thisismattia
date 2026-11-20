@@ -57,7 +57,10 @@ function splitTargets(els: Element[], cfg: NonNullable<Action['split']>): Elemen
   return els.flatMap((el) => {
     let st = splits.get(el);
     if (!st) {
-      st = SplitText.create(el as HTMLElement, { type: cfg.type, mask: cfg.mask });
+      // Split words too when animating chars: a chars-only split misplaces spaces
+      // ("Webflow Dev" rendered as "Webflo wDev"). Only the requested units animate.
+      const type = cfg.type === 'chars' ? 'words,chars' : cfg.type;
+      st = SplitText.create(el as HTMLElement, { type, mask: cfg.mask });
       splits.set(el, st);
     }
     return (st as any)[cfg.type] as Element[];
