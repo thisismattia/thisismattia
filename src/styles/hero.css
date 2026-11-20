@@ -1,0 +1,94 @@
+/* Hero, rebuilt on one fluid scale.
+   Height follows the content (never clipped), with generous top/bottom padding.
+   --h drives the headline and the purple "up" box, so they scale together from
+   360 px phones to wide desktops. The intro and loop animations use transforms
+   (scale), never width/height, so nothing around the hero shifts. */
+
+.section_hero.hero-v2 {
+  height: auto;
+  min-height: 0;
+  display: block;
+}
+
+.hero-v2 .grid_global.is-hero {
+  height: auto;
+  align-items: stretch;
+}
+
+.hero-v2 .grid_item.is-side.is-hero {
+  height: auto;
+}
+
+.hero-v2 .grid_item.is-central.is-pattern {
+  height: auto;
+  min-height: clamp(34rem, 88svh, 60rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 50% 50%;
+}
+
+.hero-v2 .hero_wrap {
+  --h: clamp(2.25rem, 1.1rem + 4.6vw, 4.5rem);
+  min-height: 0;
+  height: auto;
+  justify-content: center;
+  padding: clamp(4.5rem, 11vh, 9rem) clamp(1rem, 6vw, 10rem);
+}
+
+/* Headline */
+.hero-v2 .hero_h1-wrap,
+.hero-v2 .hero_h1-wrap.is-mid {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  gap: .22em;
+  justify-content: center;
+  font-size: var(--h);
+}
+
+.hero-v2 .hero_h1-wrap.is-mid {
+  margin: .08em 0 .1em;
+}
+
+.hero-v2 .h1_hero {
+  font-size: var(--h);
+  line-height: 1.08 !important;
+  padding-bottom: .06em !important;
+  white-space: nowrap;
+}
+
+/* Purple "up" box: sized in em of the headline */
+.hero-v2 .purple-highlight_wrap.is-hero {
+  font-size: var(--h);
+  height: 1.12em;
+  margin: 0;
+  padding: 0 .14em 0 .08em;
+  gap: .06em;
+  align-items: center;
+  border-radius: .09em;
+  transform-origin: 50% 50%;
+}
+
+.hero-v2 .arrow_impact-data.is-hero {
+  margin: 0;
+  font-size: .6em;
+  line-height: 1;
+}
+
+.hero-v2 .is-up-text {
+  font-size: 1.2em;
+  line-height: 1;
+  margin-top: -.14em;
+}
+
+/* Copy and spacing */
+.hero-v2 .spacer-small { padding-top: clamp(1rem, 2.4vh, 1.5rem); }
+.hero-v2 .spacer-medium { padding-top: clamp(1.75rem, 4vh, 2.75rem); }
+
+.hero-v2 .hero_p-wrap {
+  max-width: 36rem;
+  font-size: clamp(.9375rem, .85rem + .4vw, 1.125rem);
+}
+
+.hero-v2 .hero_p-wrap p { text-wrap: balance; }
