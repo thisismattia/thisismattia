@@ -1,0 +1,10 @@
+# Old Webflow URLs that still get visits (GA4, last 12 months). 301 = permanent.
+/index.html            /             301
+/thisismattia          /             301
+/thisismattia/*        /             301
+/projects              /#work        301
+/projects/*            /#work        301
+/contact.html          /#book        301
+/contact               /#book        301
+/about.html            /             301
+/about                 /             301
