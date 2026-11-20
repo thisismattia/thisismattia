@@ -1,0 +1,8 @@
+/* Webflow UI mockup (Genki case study, slide 3).
+   The left icon strip is an SVG <img> with no width inside a flex row; Safari sizes
+   it differently from Chrome, which pushed the top bar to the right on iPhone.
+   Explicit proportions make every browser lay it out the same (16 / 600 px = 2.67%). */
+.webflow-ui_left-wrap { flex: 0 0 2.67%; align-self: stretch; background: #1e1e1e; box-shadow: inset -1px 0 #3b3b3b; }
+.webflow-ui_left-wrap .webflow-ui-left { display: block; width: 100%; height: auto; }
+.webflow-ui-canvas { flex: 1 1 0; min-width: 0; }
+.webflow-ui-canvas > .webflow-ui-top { display: block; width: 100%; height: auto; }
