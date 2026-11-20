@@ -6,10 +6,13 @@ Personal site of Mattia Bernini. Static site built with [Astro](https://astro.bu
 
 | Branch | Purpose | Deploys to |
 | --- | --- | --- |
-| `main` | Production: the Astro rebuild of the original Webflow site | thisismattia.com |
-| `develop` | Ongoing work (Maggese case study etc.) | `develop.<project>.pages.dev` preview |
+| `main` | Production | thisismattia.com |
+| `staging` | Test environment: review changes here before they go live | https://staging.thisismattia.pages.dev |
+| `develop` | Ongoing work (Maggese case study etc.) | `develop.thisismattia.pages.dev` preview |
 
-Every push to any branch gets its own Cloudflare preview URL; merging into `main` ships to production.
+Release flow: commit to `staging` → check https://staging.thisismattia.pages.dev → merge
+`staging` into `main` (fast-forward) to ship. Previews send `X-Robots-Tag: noindex`, so
+Google doesn't index them. Every other branch also gets its own preview URL.
 
 ## Run it locally
 
