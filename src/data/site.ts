@@ -12,7 +12,7 @@ export const site = {
     booking: 'https://cal.com/mattia-cs92ne/15min',
     whatsapp: 'https://wa.me/393287365069',
     linkedin: 'https://www.linkedin.com/in/mattia-bernini-97923b234/',
-    email: 'mailto:thisismattia@gmail.com',
+    email: 'mailto:hi@thisismattia.com',
     stripeFractional: 'https://buy.stripe.com/7sY5kFcshdCI4sW4yW5Ne00',
   },
 };
