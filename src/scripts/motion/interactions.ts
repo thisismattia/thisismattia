@@ -178,6 +178,7 @@ export const interactions: Interaction[] = [
   {
     name: "hero-up-loop-mobile",
     on: "load",
+    holdPose: true,
     skip: ["medium", "main"],
     repeat: -1,
     actions: [
@@ -516,6 +517,7 @@ export const interactions: Interaction[] = [
   {
     name: "hero-up-loop",
     on: "load",
+    holdPose: true,
     skip: ["small", "tiny"],
     repeat: -1,
     actions: [

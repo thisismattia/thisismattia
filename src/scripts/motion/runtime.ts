@@ -27,6 +27,8 @@ export interface Interaction {
   skip?: Breakpoint[];
   repeat?: number;
   scroll?: { start: string; end: string };
+  /** Looping only: pre-render an element's start pose only for its first tween in the loop. */
+  holdPose?: boolean;
   actions: Action[];
 }
 
@@ -62,11 +64,29 @@ function splitTargets(els: Element[], cfg: NonNullable<Action['split']>): Elemen
   });
 }
 
+// Webflow treats translate as a single value: moving to "0%" also clears any px offset
+// set earlier. GSAP keeps x/xPercent (y/yPercent) separately, so map % to xPercent/yPercent
+// and zero the other unit, otherwise an earlier move (e.g. y: -30px) sticks around.
+function assign(vars: gsap.TweenVars, prop: string, v: Value) {
+  if ((prop === 'x' || prop === 'y') && typeof v === 'string' && v.trim().endsWith('%')) {
+    vars[`${prop}Percent`] = parseFloat(v);
+    vars[prop] = 0;
+  } else if (prop === 'x' || prop === 'y') {
+    vars[prop] = v;
+    vars[`${prop}Percent`] = 0;
+  } else vars[prop] = v;
+}
+
 function build(ix: Interaction, trigger: Element | null) {
   const tl = gsap.timeline({ paused: true, repeat: ix.repeat ?? 0 });
   // GSAP renders "from" states immediately; only the first tween per target+prop
   // may do that, otherwise later tweens would clobber the initial state.
+  // With holdPose only an element's first tween may pre-render: a later fromTo would
+  // otherwise park the element in its start pose during the idle gap before each cycle
+  // (the hero arrow sat outside its box, leaving the purple capsule empty).
   const seen = new Set<string>();
+  const loops = !!ix.holdPose && (ix.repeat ?? 0) !== 0;
+  const seenEl = new Set<string>();
 
   for (const a of ix.actions) {
     const sels = Array.isArray(a.t) ? a.t : [a.t];
@@ -78,10 +98,16 @@ function build(ix: Interaction, trigger: Element | null) {
     const to: gsap.TweenVars = {};
     let first = false;
     for (const [prop, [f, t]] of Object.entries(a.p)) {
-      if (f !== null) from[prop] = f;
-      if (t !== null) to[prop] = t;
+      if (f !== null) assign(from, prop, f);
+      if (t !== null) assign(to, prop, t);
       const key = `${sels.join('|')}:${a.split?.type ?? ''}:${prop}`;
       if (!seen.has(key)) { seen.add(key); first = true; }
+    }
+
+    if (loops) {
+      const elKey = `${sels.join('|')}:${a.split?.type ?? ''}`;
+      first = !seenEl.has(elKey);
+      seenEl.add(elKey);
     }
 
     const vars: gsap.TweenVars = {
