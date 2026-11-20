@@ -1,0 +1,126 @@
+---
+// A lookalike of the cal.com month view. Dates are live (rebuilt in the visitor's
+// local time on load); the highlighted days and the time slots are a sample.
+// The whole card is one link to the booking page; a click on a day adds ?date=.
+import { site } from '../../data/site';
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const SLOTS = ['9:00am', '9:30am', '10:00am', '10:30am'];
+
+// Server render uses the build date; the inline script below redraws it for "today".
+const today = new Date();
+const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+function model(now: Date) {
+  const t = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  // Like cal.com: start with the week before this one (or the 1st of the month if later), show 5 weeks.
+  const first = new Date(t.getFullYear(), t.getMonth(), 1);
+  const weekStart = new Date(t); weekStart.setDate(t.getDate() - t.getDay() - 7);
+  const start = weekStart > first ? weekStart : new Date(first.getFullYear(), first.getMonth(), 1 - first.getDay());
+  let selected: Date | null = null;
+  const days = Array.from({ length: 35 }, (_, i) => {
+    const d = new Date(start); d.setDate(start.getDate() + i);
+    const wd = d.getDay();
+    const avail = d > t && wd > 0 && wd < 6;
+    if (avail && !selected) selected = d;
+    return { d, avail, today: +d === +t, newMonth: d.getDate() === 1 && d.getMonth() !== t.getMonth() };
+  });
+  return { t, days, selected: selected as unknown as Date };
+}
+const m = model(today);
+const ord = (n: number) => n + (n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th');
+const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+---
+<a class="calp" href={site.links.booking} target="_blank" rel="noopener" aria-label="Book a discovery call on cal.com (opens in a new tab)" data-calp>
+  <div class="calp_head" aria-hidden="true">
+    <div class="calp_month"><span data-calp-month>{MONTHS[m.t.getMonth()]}</span> <span class="calp_year" data-calp-year>{m.t.getFullYear()}</span></div>
+    <div class="calp_nav"><span class="calp_arrow is-off">‹</span><span class="calp_arrow">›</span></div>
+  </div>
+  <div class="calp_week" aria-hidden="true">{WD.map((d) => <span>{d.toUpperCase()}</span>)}</div>
+  <div class="calp_days" aria-hidden="true" data-calp-days>
+    {m.days.map(({ d, avail, today: isToday, newMonth }) => (
+      <span class:list={['calp_day', avail && 'is-avail', +d === +m.selected && 'is-sel', isToday && 'is-today']} data-date={iso(d)}>
+        {newMonth && <small>{MONTHS[d.getMonth()].slice(0, 3).toUpperCase()}</small>}{d.getDate()}
+      </span>
+    ))}
+  </div>
+  <div class="calp_slots-head" aria-hidden="true">
+    <div class="calp_selday"><strong data-calp-wd>{WD[m.selected.getDay()]}</strong> <span data-calp-dn>{ord(m.selected.getDate())}</span></div>
+    <div class="calp_toggle"><span class="is-on">12h</span><span>24h</span></div>
+  </div>
+  <div class="calp_slots" aria-hidden="true" data-calp-sel={iso(m.selected)}>
+    {SLOTS.map((s) => <span class="calp_slot">{s}</span>)}
+  </div>
+</a>
+
+<script is:inline>
+(() => {
+  const root = document.querySelector('[data-calp]'); if (!root) return;
+  const base = root.getAttribute('href');
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const WD = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const p2 = (n) => String(n).padStart(2, '0');
+  const iso = (d) => `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}`;
+  const ord = (n) => n + (n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th');
+  const now = new Date(), t = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const first = new Date(t.getFullYear(), t.getMonth(), 1);
+  const ws = new Date(t); ws.setDate(t.getDate() - t.getDay() - 7);
+  const start = ws > first ? ws : new Date(first.getFullYear(), first.getMonth(), 1 - first.getDay());
+  let sel = null; const cells = [];
+  for (let i = 0; i < 35; i++) {
+    const d = new Date(start); d.setDate(start.getDate() + i);
+    const wd = d.getDay(), avail = d > t && wd > 0 && wd < 6; if (avail && !sel) sel = d;
+    cells.push({ d, avail });
+  }
+  const box = root.querySelector('[data-calp-days]');
+  box.innerHTML = cells.map(({ d, avail }) => {
+    const cls = ['calp_day', avail && 'is-avail', +d === +sel && 'is-sel', +d === +t && 'is-today'].filter(Boolean).join(' ');
+    const tag = d.getDate() === 1 && d.getMonth() !== t.getMonth() ? `<small>${MONTHS[d.getMonth()].slice(0, 3).toUpperCase()}</small>` : '';
+    return `<span class="${cls}" data-date="${iso(d)}">${tag}${d.getDate()}</span>`;
+  }).join('');
+  root.querySelector('[data-calp-month]').textContent = MONTHS[t.getMonth()];
+  root.querySelector('[data-calp-year]').textContent = t.getFullYear();
+  root.querySelector('[data-calp-wd]').textContent = WD[sel.getDay()];
+  root.querySelector('[data-calp-dn]').textContent = ord(sel.getDate());
+  root.querySelector('[data-calp-sel]').setAttribute('data-calp-sel', iso(sel));
+  // A click on a day (or a time) opens cal.com on that date; anywhere else, the plain booking page.
+  const setHref = (e) => {
+    const day = e.target.closest('[data-date]');
+    const date = day ? day.dataset.date : e.target.closest('.calp_slots, .calp_slots-head') ? root.querySelector('[data-calp-sel]').dataset.calpSel : null;
+    root.setAttribute('href', date ? `${base}?month=${date.slice(0, 7)}&date=${date}` : base);
+  };
+  root.addEventListener('pointerdown', setHref);
+  root.addEventListener('click', setHref);
+})();
+</script>
+
+<style is:global>
+  .calp { display: block; background: #fff; border-radius: 5px; padding: 22px; color: #111; text-decoration: none; font-family: Inter, sans-serif; cursor: pointer; }
+  .calp_head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid #e5e7eb; }
+  .calp_month { font-size: 16px; font-weight: 600; }
+  .calp_year { color: #6b7280; font-weight: 500; }
+  .calp_nav { display: flex; gap: 6px; }
+  .calp_arrow { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; font-size: 18px; color: #6b7280; transition: background .15s; }
+  .calp_arrow.is-off { color: #d1d5db; }
+  .calp_arrow:not(.is-off):hover { background: #f3f4f6; color: #111; }
+  .calp_week { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 11px; font-weight: 500; letter-spacing: .1em; padding: 16px 0; border-bottom: 1px solid #e5e7eb; }
+  .calp_days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; padding-top: 8px; }
+  .calp_day { position: relative; aspect-ratio: 1; display: grid; place-items: center; border-radius: 8px; font-size: 14px; color: #555; border: 1px solid transparent; transition: background .15s, border-color .15s, color .15s; }
+  .calp_day:hover { background: #f3f4f6; }
+  .calp_day.is-avail { background: #e5e7eb; color: #111; font-weight: 600; }
+  .calp_day.is-avail:hover { border-color: #111; background: #e5e7eb; }
+  .calp_day.is-sel, .calp_day.is-sel:hover { background: #292929; color: #fff; border-color: #292929; }
+  .calp_day.is-today::after { content: ''; position: absolute; bottom: 18%; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+  .calp_day small { position: absolute; top: 5px; left: 7px; font-size: 9px; font-weight: 600; color: #4b5563; letter-spacing: .02em; }
+  .calp_slots-head { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding: 0 4px; }
+  .calp_selday { font-size: 12px; font-weight: 500; }
+  .calp_selday strong { font-size: 16px; font-weight: 600; }
+  .calp_toggle { display: flex; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; font-size: 13px; font-weight: 500; }
+  .calp_toggle span { padding: 6px 9px; transition: background .15s; }
+  .calp_toggle .is-on { background: #f3f4f6; }
+  .calp_toggle span:hover { background: #e5e7eb; }
+  .calp_slots { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; padding: 0 4px; }
+  .calp_slot { display: block; text-align: center; border: 1px solid #d1d5db; border-radius: 8px; padding: 9px 0; font-size: 14px; font-weight: 500; color: #374151; transition: border-color .15s, background .15s; }
+  .calp_slot:hover { border-color: #111; background: #f9fafb; }
+  .calp:focus-visible { outline: 2px solid #6111eb; outline-offset: 3px; }
+  @media (max-width: 479px) { .calp { padding: 16px; } .calp_day { font-size: 12px; border-radius: 6px; } .calp_day small { top: 2px; left: 0; right: 0; text-align: center; font-size: 7px; } .calp_week { font-size: 9px; } }
+</style>

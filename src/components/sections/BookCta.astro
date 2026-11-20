@@ -2,6 +2,7 @@
 import Testimonial from "../ui/Testimonial.astro";
 import { testimonials } from "../../data/testimonials";
 import Icon from "../ui/Icon.astro";
+import CalPreview from "../ui/CalPreview.astro";
 ---
 <section class="section_book">
 <div class="grid_global">
@@ -86,20 +87,7 @@ import Icon from "../ui/Icon.astro";
 <div class="icon_book-arrow w-embed"><Icon name="book-arrow" /></div>
 </div>
 <div class="cal-embed_wrap">
-<div class="cal_embed w-embed w-script">
-<div id="my-cal-inline-15min" style="width:100%;height:100%;overflow:scroll"></div>
-<script is:inline>
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "15min", {origin:"https://app.cal.com"});
-  Cal.ns["15min"]("inline", {
-    elementOrSelector:"#my-cal-inline-15min",
-    config: {"layout":"month_view","theme":"light"},
-    calLink: "mattia-cs92ne/15min",
-  });
-  Cal.ns["15min"]("ui", {"theme":"light","hideEventTypeDetails":true,"layout":"month_view"});
-  </script>
-
-</div>
+<CalPreview />
 </div>
 </div>
 <Testimonial {...testimonials["alf-wheeler"]} variant="is-book is-hidden-desktop" ix="testimonial-card-book-hidden-desktop" star="star" />
