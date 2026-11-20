@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import type { Testimonial } from '../../data/testimonials';
+
+interface Props extends Testimonial {
+  variant?: string; // extra modifier classes, e.g. "is-book is-hidden-mobile"
+  ix?: string;      // motion hook (data-ix)
+  star?: 'star' | 'star-sm';
+}
+const { name, quote, quoteMobile, role, img, imgClass, variant, ix, star = 'star-sm' } = Astro.props;
+---
+<div class:list={['testimonial_card', variant]} data-ix={ix}>
+  <div class="testimonial-quote_wrap">
+    <div class="stars_wrap">
+      {Array.from({ length: 5 }, () => <div class:list={[{ icon_star: star === 'star' }, 'w-embed']}><Icon name={star} /></div>)}
+    </div>
+    <div class:list={['quote_wrap', { 'is-desktop': quoteMobile }]}><div set:html={quote} /></div>
+    {quoteMobile && <div class="quote_wrap is-mobile"><div set:html={quoteMobile} /></div>}
+  </div>
+  <div class="testimonial-founder_wrap">
+    <img class:list={['img_clients', imgClass]} loading="lazy" {...img} />
+    <div class="test-data_wrap">
+      <div><strong>{name}</strong></div>
+      <div class="test-title_wrap"><div set:html={role} /></div>
+    </div>
+  </div>
+</div>

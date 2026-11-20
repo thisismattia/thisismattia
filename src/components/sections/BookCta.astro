@@ -1,0 +1,110 @@
+---
+import Testimonial from "../ui/Testimonial.astro";
+import { testimonials } from "../../data/testimonials";
+import Icon from "../ui/Icon.astro";
+---
+<section class="section_book">
+<div class="grid_global">
+<div class="grid_item is-side is-left"></div>
+<div class="grid_item is-central">
+<div class="book_wrap is-first" data-ix="book-wrap-first">
+<div class="book-content_wrap">
+<div class="book-top_wrap">
+<div class="book-text_wrap">
+<div class="spacer-xsmall"></div>
+<div class="caps-block_wrap is-book-first">
+<div class="text-block-7">FOR <span class="is-highlight-capsule">FOUNDERS</span> THAT NEED THEIR WEBSITE TO PERFORM</div>
+</div>
+<h2 class="heading-3 is-hidden">It’s time to <strong><em class="span is-highlight">upgrade</em></strong> your business.</h2>
+<h2 class="heading-3">It’s time</h2>
+<div class="heading_purple_wrap">
+<h2 class="heading-3">to</h2>
+<div class="purple-highlight_wrap is-body">
+<div>up</div>
+</div>
+<h2 class="heading-3">your</h2>
+</div>
+<h2 class="heading-3">business.</h2>
+<div class="spacer-small"></div>
+<div class="p_wrap book">
+<p class="p-small">We’ll talk through your business, goals, challenges, and what you actually need. No fluff.</p>
+</div>
+<div class="hero-benetifs_wrap is-hide">
+<div class="impact_capsule is-book">
+<div class="icon_arrow-price w-embed"><Icon name="impact" /></div>
+<div>Boost conversion rate</div>
+</div>
+<div class="impact_capsule is-book">
+<div class="icon_arrow-price w-embed"><Icon name="impact-2" /></div>
+<div>Reduce bounce rate</div>
+</div>
+<div class="impact_capsule is-book">
+<div class="icon_arrow-price w-embed"><Icon name="impact-3" /></div>
+<div>Higher engagement rate</div>
+</div>
+</div>
+<div class="spacer-medium"></div>
+<div class="wapp_wrap is-hidden-mobile">
+<div class="div-block-16">
+<a class="btn_primary is-whatsapp w-inline-block" href="https://wa.me/393287365069?text=Hi%20Mattia%2C%20I%27m%20interested%20in%20working%20together%21" target="_blank"><img alt="" class="img_profile" loading="lazy" src="/images/icon_wapp.svg"/>
+<div class="btn-txt_wrap">
+<div class="btn-headingg-wrap is-secondary">
+<div class="txt-btn-primary is-secondary">Prefer to chat?</div>
+</div>
+<div class="btn-subtxt-wrap is-secondary">
+<div>Hit me up!</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="spacer-huge is-hidden-mobile"></div>
+</div>
+<div class="book-impact_wrap">
+<div class="impact-data_wrap is-stroked is-flying is-1">
+<div class="arrow_impact-data">↑</div>
+<div>130%</div>
+</div>
+<div class="impact-data_wrap is-stroked is-flying is-3">
+<div class="arrow_impact-data">↑</div>
+<div>31%</div>
+</div>
+<div class="impact-data_wrap is-stroked is-flying is-2">
+<div class="arrow_impact-data">↑</div>
+<div>56%</div>
+</div>
+</div>
+</div>
+<Testimonial {...testimonials["alf-wheeler"]} variant="is-book is-hidden-mobile" ix="testimonial-card-book-hidden-mobile" />
+</div>
+<div class="book_embed">
+<div class="book-cta_wrap">
+<div class="highlight_capsule">
+<div class="is-highlight-capsule is-desktop">Book a call</div>
+<div class="is-highlight-capsule is-mobile">Book your discovery  call</div>
+</div>
+<div class="icon_book-arrow w-embed"><Icon name="book-arrow" /></div>
+</div>
+<div class="cal-embed_wrap">
+<div class="cal_embed w-embed w-script">
+<div id="my-cal-inline-15min" style="width:100%;height:100%;overflow:scroll"></div>
+<script is:inline>
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "15min", {origin:"https://app.cal.com"});
+  Cal.ns["15min"]("inline", {
+    elementOrSelector:"#my-cal-inline-15min",
+    config: {"layout":"month_view","theme":"light"},
+    calLink: "mattia-cs92ne/15min",
+  });
+  Cal.ns["15min"]("ui", {"theme":"light","hideEventTypeDetails":true,"layout":"month_view"});
+  </script>
+
+</div>
+</div>
+</div>
+<Testimonial {...testimonials["alf-wheeler"]} variant="is-book is-hidden-desktop" ix="testimonial-card-book-hidden-desktop" star="star" />
+</div>
+</div>
+<div class="grid_item is-side is-right"></div>
+</div>
+</section>

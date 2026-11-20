@@ -1,0 +1,12 @@
+---
+interface Props { id: string; title: string; subtitle: string; hideOnLoad?: boolean; large?: boolean }
+const { id, title, subtitle, hideOnLoad = false, large = false } = Astro.props;
+---
+<section class="section_title" id={id}>
+  <div class:list={['title_wrap', { 'is-hide': hideOnLoad }]}>
+    <div><h2>{title}</h2></div>
+    {large
+      ? <div class="div-block-21"><div class="text-block-6">{subtitle}</div></div>
+      : <div class="div-block-20"><div>{subtitle}</div></div>}
+  </div>
+</section>

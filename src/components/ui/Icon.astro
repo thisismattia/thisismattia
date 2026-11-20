@@ -1,0 +1,9 @@
+---
+// Inline SVG icons from src/icons. Usage: <Icon name="star" />
+const icons = import.meta.glob<string>('../../icons/*.svg', { query: '?raw', import: 'default', eager: true });
+interface Props { name: string }
+const { name } = Astro.props;
+const svg = icons[`../../icons/${name}.svg`];
+if (!svg) throw new Error(`Icon "${name}" not found in src/icons`);
+---
+<Fragment set:html={svg} />

@@ -1,0 +1,63 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "name": "Mattia Bernini - Senior Designer",
+  "url": "https://thisismattia.com/",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Mattia Bernini",
+    "jobTitle": "Senior Designer",
+    "description": "Senior designer and design partner helping founders build products people want through strategy, branding, UX/UI design, and Webflow development.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://cdn.prod.website-files.com/68e01e95881ee374b858dca8/68e4285735b8cc140352244c_profile.jpg"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/mattia-bernini-97923b234/",
+      "https://wa.me/393287365069"
+    ],
+    "email": "thisismattia@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Medellin",
+      "addressCountry": "CO"
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Fractional Designer",
+        "description": "Best for founders & startups who need ongoing design and strategy support without hiring full-time. Senior-level expertise, unlimited requests, avg. 48 hour delivery.",
+        "price": "1995",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1995",
+          "priceCurrency": "EUR",
+          "unitText": "MONTH"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Project Based",
+        "description": "Best for one-off projects where you need a senior designer to ship something specific. Pay only for the time you need.",
+        "price": "100",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "100",
+          "priceCurrency": "EUR",
+          "unitText": "HOUR"
+        }
+      }
+    ],
+    "knowsAbout": [
+      "Design Strategy",
+      "Brand Identity",
+      "UX/UI Design",
+      "Webflow Development",
+      "E-commerce Design",
+      "Design Thinking",
+      "Conversion Rate Optimization"
+    ]
+  }
+}

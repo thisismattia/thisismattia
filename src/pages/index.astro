@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/sections/Nav.astro';
+import NavMobile from '../components/sections/NavMobile.astro';
+import Hero from '../components/sections/Hero.astro';
+import WorkSlider from '../components/sections/WorkSlider.astro';
+import BookCta from '../components/sections/BookCta.astro';
+import Clients from '../components/sections/Clients.astro';
+import SectionTitle from '../components/sections/SectionTitle.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import Toolkit from '../components/sections/Toolkit.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+import Footer from '../components/sections/Footer.astro';
+---
+<Base>
+  <Nav />
+  <NavMobile />
+  <Hero />
+  <WorkSlider />
+  <BookCta />
+  <Clients />
+  <SectionTitle id="work" title="Latest Work" subtitle="Helping founders build products people want." hideOnLoad large />
+  <CaseStudies />
+  <SectionTitle id="price" title="Pricing" subtitle="Senior designer. Fraction of the cost. Freelance Flexibility." />
+  <Pricing />
+  <SectionTitle id="services" title="My Toolkit for Founders" subtitle="11+ years of design leadership building brands that perform." />
+  <Toolkit />
+  <FinalCta />
+  <Footer />
+</Base>
