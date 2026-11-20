@@ -27,7 +27,6 @@ function model(now: Date) {
   return { t, days, selected: selected as unknown as Date };
 }
 const m = model(today);
-const ord = (n: number) => n + (n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th');
 const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 ---
 <a class="calp" href={site.links.booking} target="_blank" rel="noopener" aria-label="Book a discovery call on cal.com (opens in a new tab)" data-calp>
@@ -43,10 +42,6 @@ const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       </span>
     ))}
   </div>
-  <div class="calp_slots-head" aria-hidden="true">
-    <div class="calp_selday"><strong data-calp-wd>{WD[m.selected.getDay()]}</strong> <span data-calp-dn>{ord(m.selected.getDate())}</span></div>
-    <div class="calp_toggle"><span class="is-on">12h</span><span>24h</span></div>
-  </div>
   <div class="calp_slots" aria-hidden="true" data-calp-sel={iso(m.selected)}>
     {SLOTS.map((s) => <span class="calp_slot">{s}</span>)}
   </div>
@@ -60,7 +55,6 @@ const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const WD = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const p2 = (n) => String(n).padStart(2, '0');
   const iso = (d) => `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}`;
-  const ord = (n) => n + (n % 10 === 1 && n !== 11 ? 'st' : n % 10 === 2 && n !== 12 ? 'nd' : n % 10 === 3 && n !== 13 ? 'rd' : 'th');
   const now = new Date(), t = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const first = new Date(t.getFullYear(), t.getMonth(), 1);
   const ws = new Date(t); ws.setDate(t.getDate() - t.getDay() - 7);
@@ -79,13 +73,11 @@ const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   }).join('');
   root.querySelector('[data-calp-month]').textContent = MONTHS[t.getMonth()];
   root.querySelector('[data-calp-year]').textContent = t.getFullYear();
-  root.querySelector('[data-calp-wd]').textContent = WD[sel.getDay()];
-  root.querySelector('[data-calp-dn]').textContent = ord(sel.getDate());
   root.querySelector('[data-calp-sel]').setAttribute('data-calp-sel', iso(sel));
   // A click on a day (or a time) opens cal.com on that date; anywhere else, the plain booking page.
   const setHref = (e) => {
     const day = e.target.closest('[data-date]');
-    const date = day ? day.dataset.date : e.target.closest('.calp_slots, .calp_slots-head') ? root.querySelector('[data-calp-sel]').dataset.calpSel : null;
+    const date = day ? day.dataset.date : e.target.closest('.calp_slots') ? root.querySelector('[data-calp-sel]').dataset.calpSel : null;
     root.setAttribute('href', date ? `${base}?month=${date.slice(0, 7)}&date=${date}` : base);
   };
   root.addEventListener('pointerdown', setHref);
@@ -111,14 +103,7 @@ const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   .calp_day.is-sel, .calp_day.is-sel:hover { background: #292929; color: #fff; border-color: #292929; }
   .calp_day.is-today::after { content: ''; position: absolute; bottom: 18%; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
   .calp_day small { position: absolute; top: 5px; left: 7px; font-size: 9px; font-weight: 600; color: #4b5563; letter-spacing: .02em; }
-  .calp_slots-head { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding: 0 4px; }
-  .calp_selday { font-size: 12px; font-weight: 500; }
-  .calp_selday strong { font-size: 16px; font-weight: 600; }
-  .calp_toggle { display: flex; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; font-size: 13px; font-weight: 500; }
-  .calp_toggle span { padding: 6px 9px; transition: background .15s; }
-  .calp_toggle .is-on { background: #f3f4f6; }
-  .calp_toggle span:hover { background: #e5e7eb; }
-  .calp_slots { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; padding: 0 4px; }
+  .calp_slots { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; padding: 0 4px; }
   .calp_slot { display: block; text-align: center; border: 1px solid #d1d5db; border-radius: 8px; padding: 9px 0; font-size: 14px; font-weight: 500; color: #374151; transition: border-color .15s, background .15s; }
   .calp_slot:hover { border-color: #111; background: #f9fafb; }
   .calp:focus-visible { outline: 2px solid #6111eb; outline-offset: 3px; }
