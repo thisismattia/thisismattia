@@ -8,12 +8,18 @@ import { site } from '../data/site';
 <Base title="You're booked | Mattia Bernini" noindex>
   <div class="utility-page_component thanks">
     <div class="utility-page_wrapper thanks_wrap">
-      <div class="is-highlight-capsule thanks_tag">Discovery call booked</div>
+      <div class="is-highlight-capsule-2 thanks_tag">Discovery call booked</div>
       <h1 class="thanks_title">Talk soon<span data-thanks-name></span>!</h1>
       <p class="thanks_when" data-thanks-when hidden></p>
       <p class="thanks_note">A calendar invite with the meeting link is on its way to your inbox.</p>
       <div class="thanks_actions">
-        <a class="btn_primary w-inline-block" href="/">Back to the site</a>
+        <a class="btn_primary w-inline-block" href="/">
+          <img alt="Mattia Bernini" class="img_profile is-mattia" src="/images/profile-p-500.webp" width="48" height="48" />
+          <div class="btn-txt_wrap">
+            <div class="btn-headingg-wrap"><div class="txt-btn-primary">Back to the site</div></div>
+            <div class="btn-subtxt-wrap"><div>See more work while you wait</div></div>
+          </div>
+        </a>
         <a class="thanks_link" href={site.links.whatsapp} target="_blank" rel="noopener">Questions before the call? WhatsApp me</a>
       </div>
     </div>
@@ -45,7 +51,7 @@ import { site } from '../data/site';
 <style>
   .thanks_wrap { max-width: 32rem; gap: 1.25rem; align-items: center; }
   .thanks_tag { align-self: center; }
-  .thanks_title { font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem); line-height: 1.1; }
+  .thanks_title { font-family: "Tiempos Text", Verdana, sans-serif; font-weight: 700; font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem); line-height: 1.1; }
   .thanks_when { font-size: 1.125rem; font-weight: 600; color: #6111eb; }
   .thanks_note { color: #444; }
   .thanks_actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: .5rem; }
