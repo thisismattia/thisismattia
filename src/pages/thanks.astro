@@ -1,0 +1,53 @@
+---
+// cal.com redirects here after a booking ("Redirect on booking"), forwarding the
+// booking details as query parameters. We show the time, record booking_completed,
+// then strip the query so name/email never reach analytics or browser history.
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base title="You're booked | Mattia Bernini" noindex>
+  <div class="utility-page_component thanks">
+    <div class="utility-page_wrapper thanks_wrap">
+      <div class="is-highlight-capsule thanks_tag">Discovery call booked</div>
+      <h1 class="thanks_title">Talk soon<span data-thanks-name></span>!</h1>
+      <p class="thanks_when" data-thanks-when hidden></p>
+      <p class="thanks_note">A calendar invite with the meeting link is on its way to your inbox.</p>
+      <div class="thanks_actions">
+        <a class="btn_primary w-inline-block" href="/">Back to the site</a>
+        <a class="thanks_link" href={site.links.whatsapp} target="_blank" rel="noopener">Questions before the call? WhatsApp me</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script is:inline>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const name = q.get('attendeeFirstName') || (q.get('attendeeName') || '').split(' ')[0];
+  if (name) document.querySelector('[data-thanks-name]').textContent = ', ' + name;
+  const start = q.get('startTime');
+  if (start && !isNaN(Date.parse(start))) {
+    const d = new Date(start);
+    const el = document.querySelector('[data-thanks-when]');
+    el.textContent = d.toLocaleString(undefined, { weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' });
+    el.hidden = false;
+  }
+  if (q.has('uid')) {
+    // Count each booking once, even if the page is reloaded.
+    const key = 'tm_booked_' + q.get('uid');
+    let seen = false; try { seen = !!sessionStorage.getItem(key); sessionStorage.setItem(key, '1'); } catch (e) {}
+    if (!seen && window.gtag) gtag('event', 'booking_completed', { event_title: q.get('title') || 'Discovery Call' });
+  }
+  if (location.search) history.replaceState(null, '', '/thanks');
+})();
+</script>
+
+<style>
+  .thanks_wrap { max-width: 32rem; gap: 1.25rem; align-items: center; }
+  .thanks_tag { align-self: center; }
+  .thanks_title { font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem); line-height: 1.1; }
+  .thanks_when { font-size: 1.125rem; font-weight: 600; color: #6111eb; }
+  .thanks_note { color: #444; }
+  .thanks_actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: .5rem; }
+  .thanks_link { color: #111; font-size: .9rem; }
+</style>
