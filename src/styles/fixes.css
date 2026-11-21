@@ -14,6 +14,6 @@
 
 /* Mobile: slide titles sat on the box's bottom edge (descenders clipped). Centre them. */
 @media screen and (max-width: 479px) {
-  .slide-header-wrap { padding: .4rem 1rem .5rem; }
+  .slide-header-wrap { padding: .275rem 1rem .625rem; }
   .slide-header-wrap .slide_header { line-height: 1.15; }
 }
