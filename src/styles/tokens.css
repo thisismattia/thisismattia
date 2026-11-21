@@ -1,0 +1,109 @@
+/*
+ * thisismattia.com design tokens.
+ * Single source of truth, mirrored 1:1 by the Figma variables in the
+ * "🧱 Design System" page (collections: Primitives, Tokens, Spacing, Radius).
+ * Names map Figma "group/name" -> CSS "--group-name".
+ * Use the semantic tokens (second block) in components; primitives only define them.
+ */
+:root {
+  /* ---------- Primitives ---------- */
+  --neutral-0: #ffffff;
+  --neutral-50: #f4f4f4;
+  --neutral-100: #eeeeee;
+  --neutral-200: #e2e4eb;
+  --neutral-300: #c2c3c8;
+  --neutral-500: #555555;
+  --neutral-700: #222222;
+  --neutral-800: #111111;
+  --neutral-900: #000000;
+
+  --violet-50: #eeedff;
+  --violet-200: #cec2f0;
+  --violet-400: #8a61fa;
+  --violet-600: #6111eb;
+
+  --green-50: #e9f7eb;
+  --green-600: #27b53e;
+
+  --teal-100: #c2f0e6;
+  --teal-500: #35ccad;
+  --orange-100: #fadfba;
+  --orange-500: #ee9318;
+
+  --note-yellow: #fff79e;
+  --note-blue: #aecbf1;
+  --note-lime: #dbf59e;
+  --note-rose: #e17481;
+
+  /* ---------- Semantic tokens ---------- */
+  --bg-canvas: var(--neutral-50);
+  --bg-surface: var(--neutral-0);
+  --bg-subtle: var(--neutral-100);
+  --bg-inverse: var(--neutral-900);
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-700);
+  --text-muted: var(--neutral-500);
+  --text-inverse: var(--neutral-0);
+  --text-brand: var(--violet-600);
+  --text-positive: var(--green-600);
+
+  --border-rail: var(--neutral-300);
+  --border-subtle: var(--neutral-200);
+  --border-brand: var(--violet-600);
+  --border-positive: var(--green-600);
+
+  --brand-primary: var(--violet-600);
+  --brand-subtle: var(--violet-50);
+  --positive-subtle: var(--green-50);
+
+  --cursor-purple: var(--violet-400);
+  --cursor-purple-bg: var(--violet-200);
+  --cursor-teal: var(--teal-500);
+  --cursor-teal-bg: var(--teal-100);
+  --cursor-orange: var(--orange-500);
+  --cursor-orange-bg: var(--orange-100);
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-40: 160px;
+
+  /* ---------- Radius ---------- */
+  --radius-xs: 3px;   /* capsules, stat badges */
+  --radius-sm: 5px;   /* cursor tags, testimonial cards */
+  --radius-md: 8px;   /* small cards, screenshots */
+  --radius-lg: 10px;  /* case cards, slide boards */
+  --radius-xl: 20px;
+  --radius-pill: 1000px;
+
+  /* ---------- Borders & effects ---------- */
+  --border-dashed: 1px dashed var(--border-rail);
+  --border-dashed-brand: 1px dashed var(--border-brand);
+  --shadow-note: 0 5px 5px rgb(0 0 0 / 20%);
+  --shadow-float: 0 0 0 1px rgb(0 0 0 / 6%), 0 12px 40px rgb(0 0 0 / 14%);
+
+  /* ---------- Typography ---------- */
+  --font-serif: 'Tiempos Text', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* size / line-height pairs (serif = 700, sans weights per style) */
+  --type-display: 72px;      --type-display-lh: 1.08;   /* hero H1 (fluid on site) */
+  --type-h1: 48px;           --type-h1-lh: 1;           /* section titles */
+  --type-h2: 36px;           --type-h2-lh: 1.08;        /* case titles, slide headers */
+  --type-h3: 32px;           --type-h3-lh: 1.2;
+  --type-body-lg: 18px;      --type-body-lg-lh: 1.5;
+  --type-body: 16px;         --type-body-lh: 1.5;
+  --type-body-sm: 14px;      --type-body-sm-lh: 1.5;
+  --type-caption: 12px;      --type-caption-lh: 1.5;
+  --type-label: 12.8px;      --type-label-lh: 1;        /* stats, 600 */
+  --type-overline: 9.6px;    --type-overline-lh: 1.5;   /* capsules, 600, uppercase */
+}

@@ -67,29 +67,29 @@
   --text-color--text-warning: var(--base-color-system--warning-yellow-dark);
   --border-color--border-dots: var(--base-color-brand--grey-dots);
   --base-color-neutral--white: #fff;
-  --base-color-brand--purple-dark: #6111eb;
+  --base-color-brand--purple-dark: var(--violet-600);
   --_this-is-mattia---radius-small: 5px;
-  --base-color-brand--purple-bg: #eeedff;
+  --base-color-brand--purple-bg: var(--violet-50);
   --border-color--border-green: var(--base-color-brand--green);
   --base-color-brand--purple: #9f57ce;
-  --base-color-brand--green-bg: #e9f7eb;
-  --base-color-neutral--neutral-darkest: #111;
-  --base-color-brand--green: #27b53e;
-  --base-color-brand--grey-dots: #c2c3c8;
+  --base-color-brand--green-bg: var(--green-50);
+  --base-color-neutral--neutral-darkest: var(--neutral-800);
+  --base-color-brand--green: var(--green-600);
+  --base-color-brand--grey-dots: var(--neutral-300);
   --_this-is-mattia---radius-medium: 10px;
-  --base-color-neutral--neutral-darker: #222;
-  --base-color-brand--grey-light: #f4f4f4;
-  --base-color-neutral--neutral-lightest: #eee;
-  --base-color-brand--sticker-yello: #fff79e;
-  --base-color-brand--sticker-blue: #aecbf1;
-  --base-color-brand--sticker-green: #dbf59e;
-  --base-color-brand--sticker-red: #e17481;
-  --user--orange: #ee9318;
-  --user--purple: #8a61fa;
-  --user--purple-bg: #cec2f0;
-  --user--green: #35ccad;
-  --user--green-bg: #c2f0e6;
-  --user--orange-bg: #fadfba;
+  --base-color-neutral--neutral-darker: var(--neutral-700);
+  --base-color-brand--grey-light: var(--neutral-50);
+  --base-color-neutral--neutral-lightest: var(--neutral-100);
+  --base-color-brand--sticker-yello: var(--note-yellow);
+  --base-color-brand--sticker-blue: var(--note-blue);
+  --base-color-brand--sticker-green: var(--note-lime);
+  --base-color-brand--sticker-red: var(--note-rose);
+  --user--orange: var(--orange-500);
+  --user--purple: var(--violet-400);
+  --user--purple-bg: var(--violet-200);
+  --user--green: var(--teal-500);
+  --user--green-bg: var(--teal-100);
+  --user--orange-bg: var(--orange-100);
   --_this-is-mattia---stroke-small: 2px;
   --base-color-brand--genki-green: #002422;
   --base-color-neutral--neutral-dark: #444;
@@ -174,7 +174,7 @@
 
 body {
   color: #000;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -1334,7 +1334,7 @@ figcaption {
 .fs-styleguide_hero-label {
   color: var(--text-color--text-primary);
   text-transform: uppercase;
-  background-color: #eee;
+  background-color: var(--neutral-100);
   border-radius: .25rem;
   padding: .25rem .375rem;
   font-size: .75rem;
@@ -2509,7 +2509,7 @@ figcaption {
 .div-block-24.is-new.is-purple {
   border-color: var(--base-color-brand--purple-dark);
   color: var(--base-color-brand--purple-dark);
-  background-color: #eeedff;
+  background-color: var(--violet-50);
 }
 
 .div-block-25 {
@@ -2675,7 +2675,7 @@ figcaption {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   background-color: var(--border-color--border-primary);
-  border: 1px solid #e2e4eb;
+  border: 1px solid var(--neutral-200);
   border-radius: 10px;
   flex-flow: column;
   justify-content: flex-start;
@@ -4094,9 +4094,9 @@ figcaption {
 }
 
 .is-highlight-capsule-2 {
-  color: #6111eb;
-  background-color: #eeedff;
-  border: .5px dashed #6111eb;
+  color: var(--violet-600);
+  background-color: var(--violet-50);
+  border: .5px dashed var(--violet-600);
   border-radius: 3px;
   height: 100%;
   padding: 3px 5px;
