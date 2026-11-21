@@ -11,3 +11,9 @@
 .webflow-ui-canvas > .webflow-ui-top { flex: none; aspect-ratio: 583 / 17; }
 .webflow-ui-inner_wrap > img { flex: none; height: auto; }
 .webflow-ui-inner_wrap { flex: none; }
+
+/* Mobile: slide titles sat on the box's bottom edge (descenders clipped). Centre them. */
+@media screen and (max-width: 479px) {
+  .slide-header-wrap { padding: .4rem 1rem .5rem; }
+  .slide-header-wrap .slide_header { line-height: 1.15; }
+}
