@@ -6,3 +6,8 @@
 .webflow-ui_left-wrap .webflow-ui-left { display: block; width: 100%; height: auto; }
 .webflow-ui-canvas { flex: 1 1 0; min-width: 0; }
 .webflow-ui-canvas > .webflow-ui-top { display: block; width: 100%; height: auto; }
+/* iOS Safari shrinks the top bar's height inside the column flexbox, and the SVG then
+   letterboxes (narrower, centred). Never shrink it; lock its aspect ratio. */
+.webflow-ui-canvas > .webflow-ui-top { flex: none; aspect-ratio: 583 / 17; }
+.webflow-ui-inner_wrap > img { flex: none; height: auto; }
+.webflow-ui-inner_wrap { flex: none; }
