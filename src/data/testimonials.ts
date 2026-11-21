@@ -5,8 +5,8 @@ export const testimonials: Record<string, Testimonial> = {
   "fabrizio-marino": {
     "imgClass": "is-anne",
     "name": "Fabrizio Marino",
-    "quote": "Mattia understood Maggese from the very first conversation: our kitchen, our producers, our way of welcoming guests. He turned it into <strong>a brand and a website that feel like us</strong>, and our <strong>guests now book with confidence</strong>.",
-    "quoteMobile": "Mattia turned Maggese into <strong>a brand and a website that feel like us</strong>.",
+    "quote": "From the day we relaunched we all felt <strong>a wave of new customers</strong> walking in the restaurant. Beyond that, the work done on the <strong>strategy and clarity was foundational for our growth</strong>.",
+    "quoteMobile": "From the day we relaunched we all felt <strong>a wave of new customers</strong> walking in the restaurant.",
     "role": "Chef &amp; Founder <span class=\"purple_highlight\">Maggese</span>",
     "img": {
       "src": "/images/client_fabrizio.jpg",

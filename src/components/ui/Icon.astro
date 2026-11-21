@@ -1,9 +1,12 @@
 ---
 // Inline SVG icons from src/icons. Usage: <Icon name="star" />
+// Pass `uid` when the same icon appears more than once on a page and uses
+// clipPath/filter/gradient ids, so each copy references its own definitions.
 const icons = import.meta.glob<string>('../../icons/*.svg', { query: '?raw', import: 'default', eager: true });
-interface Props { name: string }
-const { name } = Astro.props;
-const svg = icons[`../../icons/${name}.svg`];
+interface Props { name: string; uid?: string }
+const { name, uid } = Astro.props;
+let svg = icons[`../../icons/${name}.svg`];
 if (!svg) throw new Error(`Icon "${name}" not found in src/icons`);
+if (uid) svg = svg.replace(/id="([^"]+)"/g, `id="$1-${uid}"`).replace(/url\(#([^)]+)\)/g, `url(#$1-${uid})`);
 ---
 <Fragment set:html={svg} />

@@ -6,15 +6,15 @@
 </g>
 </g>
 <defs>
-<filter color-interpolation-filters="sRGB" filterunits="userSpaceOnUse" height="27.8242" id="filter0_d_3336_21305" width="25.937" x="6.13574" y="7.32031">
-<feflood flood-opacity="0" result="BackgroundImageFix">
-<fecolormatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0">
-<feoffset dy="2">
-<fegaussianblur stdDeviation="1">
-<fecolormatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0">
-<feblend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_3336_21305">
-<feblend in="SourceGraphic" in2="effect1_dropShadow_3336_21305" mode="normal" result="shape">
-</feblend></feblend></fecolormatrix></fegaussianblur></feoffset></fecolormatrix></feflood></filter>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="27.8242" id="filter0_d_3336_21305" width="25.937" x="6.13574" y="7.32031">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3336_21305"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3336_21305" result="shape"/>
+</filter>
 <clipPath id="clip0_3336_21305">
 <rect fill="white" height="32" transform="translate(0.34375 7.34375) rotate(-12.5144)" width="32"></rect>
 </clipPath>
