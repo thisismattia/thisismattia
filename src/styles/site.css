@@ -48,7 +48,7 @@
 }
 
 :root {
-  --base-color-neutral--black: #000;
+  --base-color-neutral--black: var(--neutral-900);
   --link-color--link-primary: var(--base-color-brand--blue\<deleted\|variable-de000a4d-0fee-1f9e-af85-624658122d10\>);
   --background-color--background-primary: var(--base-color-brand--grey-light);
   --text-color--text-alternate: var(--base-color-neutral--white);
@@ -66,9 +66,9 @@
   --background-color--background-warning: var(--base-color-system--warning-yellow);
   --text-color--text-warning: var(--base-color-system--warning-yellow-dark);
   --border-color--border-dots: var(--base-color-brand--grey-dots);
-  --base-color-neutral--white: #fff;
+  --base-color-neutral--white: var(--neutral-0);
   --base-color-brand--purple-dark: var(--violet-600);
-  --_this-is-mattia---radius-small: 5px;
+  --_this-is-mattia---radius-small: var(--radius-sm);
   --base-color-brand--purple-bg: var(--violet-50);
   --border-color--border-green: var(--base-color-brand--green);
   --base-color-brand--purple: #9f57ce;
@@ -76,7 +76,7 @@
   --base-color-neutral--neutral-darkest: var(--neutral-800);
   --base-color-brand--green: var(--green-600);
   --base-color-brand--grey-dots: var(--neutral-300);
-  --_this-is-mattia---radius-medium: 10px;
+  --_this-is-mattia---radius-medium: var(--radius-lg);
   --base-color-neutral--neutral-darker: var(--neutral-700);
   --base-color-brand--grey-light: var(--neutral-50);
   --base-color-neutral--neutral-lightest: var(--neutral-100);
@@ -95,7 +95,7 @@
   --base-color-neutral--neutral-dark: #444;
   --base-color-brand--blue-interface: #09f;
   --base-color-brand--green-positive: #098d4e;
-  --_this-is-mattia---radius-big: 20px;
+  --_this-is-mattia---radius-big: var(--radius-xl);
   --base-color-neutral--neutral-lighter: #ccc;
   --base-color-neutral--neutral-light: #aaa;
   --base-color-neutral--neutral: #666;
