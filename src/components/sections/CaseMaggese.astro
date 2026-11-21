@@ -27,14 +27,15 @@ import Icon from "../ui/Icon.astro";
                           <div class="sticker mg-n mg-n3"><div>Guests want the farm story</div></div>
                           <div class="sticker mg-n mg-n4"><div>Make booking easy</div></div>
                           <div class="icon-grabbing-hand w-embed mg-hand"><Icon name="grabbing-hand" uid="mg" /></div>
-                          <div class="w-embed mg-food mg-tomato"><Icon name="tomato" /></div>
-                          <div class="w-embed mg-food mg-mushroom"><Icon name="mushroom" /></div>
+                          <div class="w-embed mg-food mg-apple"><Icon name="sticker-apple" uid="mg" /></div>
+                          <div class="w-embed mg-food mg-banana"><Icon name="sticker-banana" /></div>
+                          <div class="w-embed mg-food mg-cherries"><Icon name="sticker-cherries" /></div>
                           <div class="mg-u mg-u1"><div class="mg-u-in user_wrap"><img src="/images/user_arrow-2.webp" loading="lazy" width="38.5" alt="" class="mg-u-arrow">
                             <div class="user_name is-2"><div>Fabrizio</div></div></div></div>
                           <div class="mg-u mg-u2"><div class="mg-u-in user_wrap"><img src="/images/user_arrow-1.webp" loading="lazy" width="38.5" alt="" class="mg-u-arrow">
                             <div class="user_name"><div>Mattia</div></div></div></div>
-                          <div class="mg-u mg-u3"><div class="mg-u-in user_wrap"><div class="user_name is-3"><div>Amanda</div></div>
-                            <img src="/images/user_arrow-3.webp" loading="lazy" width="38.5" alt="" class="mg-u-arrow"></div></div>
+                          <div class="mg-u mg-u3"><div class="mg-u-in user_wrap"><img src="/images/user_arrow-3.webp" loading="lazy" width="38.5" alt="" class="mg-u-arrow">
+                            <div class="user_name is-3"><div>Amanda</div></div></div></div>
                         </div>
                       </div>
                       <div class="mg-slide is-board">
@@ -249,17 +250,21 @@ import Icon from "../ui/Icon.astro";
 .mg-n3{right:6%;top:9%;rotate:7deg;background-color:var(--base-color-brand--sticker-yello)}
 .mg-n4{right:23%;bottom:5%;rotate:-8deg;background-color:var(--base-color-brand--sticker-red)}
 .mg-strat .mg-hand{left:calc(31% + 128px);top:calc(6% + 112px);margin:0;width:40px}
-.mg-food{width:84px;z-index:2}
-.mg-tomato{right:calc(6% + 118px);top:4%;rotate:-12deg}
-.mg-mushroom{left:calc(5% + 118px);top:calc(52% + 100px);rotate:10deg}
+.mg-food{z-index:2;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15))}
+.mg-apple{width:72px;right:calc(6% + 128px);top:3%;rotate:-10deg}
+.mg-banana{width:120px;left:calc(5% + 92px);top:calc(52% + 58px);rotate:12deg}
+.mg-cherries{width:118px;right:calc(23% + 112px);bottom:2%;rotate:-6deg}
 .mg-u{z-index:3}
 .mg-u-in{display:flex;align-items:flex-end}
 .mg-u1{left:56%;top:22%}
 .mg-u2{left:44%;top:66%}
 .mg-u3{left:16%;top:40%}
-.mg-u1 .mg-u-in{align-items:flex-start}
-.mg-u-arrow{width:22px;height:auto}
-.mg-u3 .mg-u-in{align-items:flex-start}
+.mg-u-arrow{width:20px;height:auto}
+.mg-u1 .mg-u-in,.mg-u3 .mg-u-in{align-items:flex-start}
+.mg-u1 .mg-u-arrow,.mg-u3 .mg-u-arrow{margin-right:-5px;position:relative;z-index:1}
+.mg-u1 .user_name,.mg-u3 .user_name{margin-top:14px}
+.mg-u1 .mg-u-arrow{margin-right:-9px}.mg-u1 .user_name{margin-top:9px}
+.mg-u2 .mg-u-in{align-items:flex-end}.mg-u2 .mg-u-arrow{margin-bottom:-.5rem}
 .mg-slide.is-active .mg-n1{animation-delay:.2s}
 .mg-slide.is-active .mg-n3{animation-delay:.3s}
 .mg-slide.is-active .mg-n2{animation-delay:.4s}
@@ -276,17 +281,19 @@ import Icon from "../ui/Icon.astro";
 @media screen and (max-width:767px){
   .mg-strat .mg-n{width:110px;height:110px;font-size:.85rem}
   .mg-strat .mg-hand{left:calc(31% + 92px);top:calc(6% + 80px);width:32px}
-  .mg-food{width:62px}
-  .mg-tomato{right:calc(6% + 84px)}
-  .mg-mushroom{left:calc(5% + 84px);top:calc(52% + 70px)}
+  .mg-apple{width:56px;right:calc(6% + 90px)}
+  .mg-banana{width:90px;left:calc(5% + 64px);top:calc(52% + 40px)}
+  .mg-cherries{width:88px;right:calc(23% + 80px)}
 }
 @media screen and (max-width:479px){
   .mg-strat .mg-n{width:70px;height:70px;font-size:.6rem;padding:.35rem}
   .mg-n1{left:28%;top:5%}.mg-n2{left:4%;top:56%}.mg-n3{right:4%;top:14%}.mg-n4{right:14%;bottom:6%}
   .mg-strat .mg-hand{left:calc(28% + 56px);top:calc(5% + 50px);width:24px}
-  .mg-food{width:42px}
-  .mg-tomato{right:calc(4% + 50px);top:8%}
-  .mg-mushroom{left:calc(4% + 52px);top:calc(56% + 46px)}
+  .mg-apple{width:36px;right:calc(4% + 56px);top:8%}
+  .mg-banana{width:58px;left:calc(4% + 40px);top:calc(56% + 26px)}
+  .mg-cherries{width:58px;right:calc(14% + 50px);bottom:3%}
+  .mg-u-arrow{width:14px}
+  .mg-u1 .user_name,.mg-u3 .user_name{margin-top:10px}
   .mg-strat .user_name{font-size:9px;line-height:1.5}
   .mg-u1{left:58%;top:30%}.mg-u2{left:50%;top:64%}.mg-u3{left:6%;top:38%}
 }
