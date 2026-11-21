@@ -24,7 +24,7 @@ function locationOf(el: Element): string {
   return 'other';
 }
 
-const CASES: Record<string, string> = { getyourdailygreens: 'genki_greens', puremelt: 'pure_melt' };
+const CASES: Record<string, string> = { ristorantemaggese: 'maggese', getyourdailygreens: 'genki_greens', puremelt: 'pure_melt' };
 
 function onClick(e: MouseEvent) {
   const a = (e.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;

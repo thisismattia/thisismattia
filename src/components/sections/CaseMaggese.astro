@@ -1,0 +1,394 @@
+---
+// Ristorante Maggese tiny case study. Own slider (not the Webflow IX runtime):
+// 3 slides (strategy board, design collage, dish grid in a browser frame).
+import Testimonial from "../ui/Testimonial.astro";
+import { testimonials } from "../../data/testimonials";
+import Icon from "../ui/Icon.astro";
+---
+<div class="section_work">
+        <div class="grid_global is-work">
+          <div class="grid_item is-side is-left"></div>
+          <div class="grid_item is-central is-work mg-case">
+            <div class="work_wrap">
+              <div class="highlight_capsule">
+                <div class="is-highlight-capsule">tiny case study 1/3</div>
+              </div>
+              <div class="case_wrap">
+                <div class="work-slider_wrap">
+                  <div class="slide_wrap">
+                    <div class="slide-visuals mg-visuals">
+                      <div class="mg-slide is-board is-active">
+<div class="genki-slide-1 mg-board">
+                        <div class="genki-1-top">
+                          <div class="genki-1-top-left">
+                            <div class="sticker is-genki-1">
+                              <div>Cucina. Agricola. Spontanea.</div>
+                            </div>
+                            <div class="icon-grabbing-hand w-embed"><Icon name="grabbing-hand" /></div>
+                            <div class="user_wrap is-user-2"><img src="/images/user_arrow-2.webp" loading="lazy" width="38.5" alt="A light teal arrowhead shape with dashed edges, positioned on a transparent background." class="arrow_user-2">
+                              <div class="user_name is-2">
+                                <div>Fabrizio</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="sticker is-genki-2">
+                            <div>Own the Chef Marino name</div>
+                          </div>
+                        </div>
+                        <div class="genki-1-mid">
+                          <div class="slide-header-wrap">
+                            <div class="slide_header">Strategy</div>
+                          </div>
+                          <div class="user_wrap is-user-1"><img src="/images/user_arrow-1.webp" loading="lazy" alt="A light purple triangular shape with darker purple dashed edges, placed on a black background." class="arrow_user-1">
+                            <div class="user_name">
+                              <div>Mattia</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="genki-1-bottom">
+                          <div class="genki-1-bottom-left">
+                            <div class="user_wrap is-user-3">
+                              <div class="user_name is-3">
+                                <div>Fabrizio</div>
+                              </div><img src="/images/user_arrow-3.webp" loading="lazy" width="38.5" alt="A light beige triangular shape with an orange dashed outline, set against a plain background." class="arrow_user-3">
+                            </div>
+                            <div class="sticker is-genki-3">
+                              <div>Guests want the farm story</div>
+                            </div>
+                            <div class="icon_yes w-embed"><Icon name="yes" /></div>
+                          </div>
+                          <div class="genki-1-bottom-right">
+                            <div class="icon_thumbs-up w-embed"><Icon name="thumbs-up" /></div>
+                            <div class="sticker is-genki-4">
+                              <div>Make booking easy</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="mg-slide is-board">
+                        <div class="genki-slide-2 mg-board mg-collage">
+                          <div class="genki-2-top">
+                            <div class="genki-2-top-left"><img src="/images/maggese_design-1.jpg" loading="lazy" width="300" height="211" alt="Maggese home page with a grid of dishes around the line Cucina. Agricola. Spontanea." class="mg-shot"></div>
+                            <div class="genki-2-top-right"><img src="/images/maggese_design-2.jpg" loading="lazy" width="300" height="211" alt="Maggese restaurant hero: a dark, candle-lit dining room with flowers on the tables." class="mg-shot"></div>
+                          </div>
+                          <div class="genki-2-mid">
+                            <div class="slide-header-wrap">
+                              <div class="slide_header">Design</div>
+                            </div>
+                          </div>
+                          <div class="genki-2-bottom">
+                            <div class="genki-2-bottom-left"><img src="/images/maggese_design-3.jpg" loading="lazy" width="200" height="141" alt="Maggese chef page with Chef Fabrizio Marino plating a dish." class="genki-slide-2_img mg-shot"></div>
+                            <div class="genki-2-bottom-center"><img src="/images/maggese_design-4.jpg" loading="lazy" width="300" height="211" alt="Maggese menu page, Menù l’Incontro, with a grid of seasonal dishes." class="genki-slide-2_img mg-shot"></div>
+                            <div class="genki-2-bottom-right"><img src="/images/maggese_design-5.jpg" loading="lazy" width="200" height="141" alt="Maggese restaurant page, Laboratorio vegetale, with a photo of the dining room." class="genki-slide-2_img mg-shot"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mg-slide is-grid" data-dur="7000">
+                        <div class="mg-browser">
+                        <div class="mg-browser__bar" aria-hidden="true">
+                          <img class="mg-browser__left" src="/images/browser_left.svg" alt="">
+                          <div class="mg-browser__url"><img class="mg-browser__privacy" src="/images/browser_privacy.svg" alt=""><span class="mg-browser__pill"><span>ristorantemaggese.it</span><img src="/images/browser_refresh.svg" alt=""></span></div>
+                          <img class="mg-browser__right" src="/images/browser_right.svg" alt="">
+                        </div>
+                        <div class="mg-browser__view">
+                        <div class="mg-grid" data-mg-grid data-status="loading">
+                          <div class="mg-grid__list">
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-01.jpg" alt="Blue and white bowl with a dish in orange sauce and vegetables" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-02.jpg" alt="Plate of stuffed pasta shells with cream and herbs" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-03.jpg" alt="Matcha whisk in front of a bowl of frothy green tea" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-04.jpg" alt="Green risotto on a scalloped plate" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-05.jpg" alt="Small plated dish with crispy garnish and orange sauce" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-06.jpg" alt="Wooden board with herbs, mushrooms and sauces" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-07.jpg" alt="Roasted mushrooms stacked on a white plate" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-08.jpg" alt="A chef adding herbs to a mushroom dish" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-09.jpg" alt="Cheese selection on a wooden board" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-10.jpg" alt="Pieces of nut brittle" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-11.jpg" alt="Gold stand with small sweets" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-12.jpg" alt="Thin slices arranged like a flower on a floral plate" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-13.jpg" alt="Creamy dessert with crumble and mint" loading="lazy" draggable="false"></div></div>
+                            <div class="mg-grid__item"><div class="mg-grid__card"><img src="/images/maggese_dish-14.jpg" alt="A spoon of foam against a white background" loading="lazy" draggable="false"></div></div>
+                          </div>
+                        </div>
+                        <div class="slide-header-wrap mg-grid__title">
+                          <div class="slide_header">Development</div>
+                        </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slide-info_wrap">
+                      <div class="info_wrap">
+                        <div class="slide_load-line">
+                          <div class="line_grey"></div>
+                          <div class="mg-line"></div>
+                        </div>
+                        <div class="global_info_wrap">
+                          <div class="w-embed"><Icon name="branding" /></div>
+                          <div>Strategy &amp; Branding</div>
+                          <p class="p-tiny">We defined Maggese’s positioning and protected Chef Marino’s name as a brand across restaurant, products, consultancy and education.</p>
+                          <div class="highlight_capsule">
+                            <div class="is-highlight-capsule is-info">1/3</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="info_wrap is-shy">
+                        <div class="slide_load-line">
+                          <div class="line_grey"></div>
+                          <div class="mg-line"></div>
+                        </div>
+                        <div class="global_info_wrap">
+                          <div class="w-embed"><Icon name="design" /></div>
+                          <div>Web design</div>
+                          <p class="p-tiny">We designed a calm, editorial website that lets the food lead and makes booking a table the obvious next step.</p>
+                          <div class="highlight_capsule">
+                            <div class="is-highlight-capsule is-info">2/3</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="info_wrap is-shy">
+                        <div class="slide_load-line">
+                          <div class="line_grey"></div>
+                          <div class="mg-line"></div>
+                        </div>
+                        <div class="global_info_wrap">
+                          <div class="w-embed"><Icon name="code" /></div>
+                          <div>Development</div>
+                          <p class="p-tiny">We built the site in Webflow for a fast launch, and so the team can keep menus and content up to date themselves.</p>
+                          <div class="highlight_capsule">
+                            <div class="is-highlight-capsule is-info">3/3</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="work_intro">
+                <div class="intro_wrap">
+                  <div class="intro_text">
+                    <h3>Ristorante Maggese</h3>
+                    <div class="spacer-small"></div>
+                    <p class="p-small is-normal">I partnered with Chef Fabrizio Marino to shape the <strong>brand strategy</strong> and <strong>website</strong> for Maggese, his vegetarian fine-dining restaurant in San Miniato, turning “cucina agricola spontanea” into an experience that fills tables.</p>
+                    <div class="spacer-small"></div>
+                    <div class="results_wrap">
+                      <div class="impact_capsule is-work">
+                        <div class="icon_arrow-price w-embed"><Icon name="impact" /></div>
+                        <div>Conversion rate (CR)</div>
+                        <div class="impact-data_wrap is-stroked">
+                          <div class="arrow_impact-data">↑</div>
+                          <div>26%</div>
+                        </div>
+                      </div>
+                      <div class="impact_capsule is-work">
+                        <div class="icon_arrow-price w-embed"><Icon name="impact-2" /></div>
+                        <div>Bookings</div>
+                        <div class="impact-data_wrap is-stroked">
+                          <div class="arrow_impact-data">↑</div>
+                          <div>21%</div>
+                        </div>
+                      </div>
+                      <div class="impact_capsule is-work">
+                        <div class="icon_arrow-price w-embed"><Icon name="impact-3" /></div>
+                        <div>Cancellations</div>
+                        <div class="impact-data_wrap is-stroked">
+                          <div class="arrow_impact-data is-down">↑</div>
+                          <div>27%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="spacer-small"></div>
+                    <div class="div-block-31">
+                      <a href="https://www.ristorantemaggese.it/" target="_blank" class="btn_primary is-secondary is-work w-inline-block">
+                        <div class="btn-txt_wrap">
+                          <div class="btn-headingg-wrap is-work">
+                            <div class="txt-btn-primary is-work">Open Website</div>
+                            <div class="icon_circled-arrow is-btn w-embed"><Icon name="circled-arrow" /></div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="testimonial_work">
+                    <Testimonial {...testimonials["fabrizio-marino"]} variant="is-work is-anne" star="star" />
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid_item is-side is-right"></div>
+        </div>
+</div>
+
+<style is:global>
+.mg-case{transform:scale(.9);transition:transform .5s cubic-bezier(.215,.61,.355,1)}
+    .mg-case.is-in{transform:scale(1)}
+    .mg-visuals{position:relative;overflow:hidden}
+    .mg-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;transition:opacity .5s ease}
+    .mg-slide.is-active{opacity:1}
+    .mg-slide > img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 10px 30px rgba(17,12,40,.18)}
+    .mg-case .info_wrap{transition:opacity .4s ease}
+    .mg-line{z-index:2;background-color:var(--base-color-brand--purple-dark);width:1px;height:0%;position:absolute;inset:0% auto auto 0%}
+    .mg-slide.is-board{padding:0;align-items:stretch;justify-content:stretch}
+    .mg-board{display:flex!important}
+    .mg-slide.is-board .sticker,.mg-slide.is-board .user_wrap,.mg-slide.is-board .w-embed,.mg-slide.is-board .slide-header-wrap,.mg-slide.is-board .mg-shot{opacity:0}
+    .mg-slide.is-board.is-active .sticker,.mg-slide.is-board.is-active .user_wrap,.mg-slide.is-board.is-active .w-embed,.mg-slide.is-board.is-active .slide-header-wrap,.mg-slide.is-board.is-active .mg-shot{animation:mgPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+    .mg-slide.is-board.is-active .slide-header-wrap{animation-delay:.05s}
+    .mg-slide.is-board.is-active .genki-1-top .sticker{animation-delay:.25s}
+    .mg-slide.is-board.is-active .genki-1-bottom .sticker{animation-delay:.45s}
+    .mg-slide.is-board.is-active .user_wrap{animation-delay:.7s}
+    .mg-slide.is-board.is-active .w-embed{animation-delay:.9s}
+    .mg-collage .mg-shot{border-radius:6px;display:block;max-width:100%;height:auto}
+    .mg-slide.is-board.is-active .genki-2-top-left .mg-shot{animation-delay:.15s}
+    .mg-slide.is-board.is-active .genki-2-top-right .mg-shot{animation-delay:.3s}
+    .mg-slide.is-board.is-active .genki-2-bottom-left .mg-shot{animation-delay:.45s}
+    .mg-slide.is-board.is-active .genki-2-bottom-center .mg-shot{animation-delay:.6s}
+    .mg-slide.is-board.is-active .genki-2-bottom-right .mg-shot{animation-delay:.75s}
+    @media screen and (min-width:480px){
+      .mg-collage .genki-2-top-left{transform:rotate(-6deg);margin-top:-1rem;margin-left:-3rem}
+      .mg-collage .genki-2-top-right{transform:rotate(8deg);margin-bottom:4rem;margin-right:-3.5rem}
+      .mg-collage .genki-2-top-left .mg-shot,.mg-collage .genki-2-top-right .mg-shot{width:400px;max-width:none}
+      .mg-collage .genki-2-bottom{align-items:flex-start}
+      .mg-collage .genki-2-bottom-left{width:44%;transform:rotate(6deg);margin-top:1.25rem;margin-left:-6rem;margin-right:3rem}
+      .mg-collage .genki-2-bottom-center{width:50%;transform:rotate(-2.5deg);margin-top:2rem}
+      .mg-collage .genki-2-bottom-right{width:44%;transform:rotate(-8deg);margin-top:0;margin-left:3rem;margin-right:-5rem}
+    }
+    .mg-slide.is-grid{padding:0;display:block}
+    .mg-grid{--mg-item:210px;--mg-pad:34px;position:absolute;inset:0;overflow:hidden;pointer-events:none;transition:opacity .5s ease}
+    .mg-grid[data-status=loading]{opacity:0}
+    .mg-grid__list{position:absolute;inset:0}
+    .mg-grid__item{position:absolute;top:0;left:0;width:var(--mg-item);aspect-ratio:1;padding:var(--mg-pad);display:flex;will-change:transform;backface-visibility:hidden}
+    .mg-grid__card{position:relative;width:100%;height:100%;border-radius:2px;overflow:hidden;will-change:transform}
+    .mg-grid__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+    .mg-grid__title{z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+    .mg-browser{position:absolute;top:2rem;left:2rem;right:2rem;bottom:-12px;display:flex;flex-direction:column;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 12px 40px rgba(0,0,0,.14)}
+    .mg-browser__bar{--bar:40px;position:relative;z-index:4;flex:none;height:var(--bar);display:flex;align-items:center;background:#fcfcfc;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+    .mg-browser__bar img{display:block;max-width:none}
+    .mg-browser__left,.mg-browser__right{height:100%;width:auto;flex:none}
+    .mg-browser__url{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:calc(var(--bar)*.2)}
+    .mg-browser__privacy{height:calc(var(--bar)*.38);width:auto;opacity:.85}
+    .mg-browser__pill{flex:0 1 26rem;min-width:0;height:calc(var(--bar)*.5);border-radius:calc(var(--bar)*.115);background:#eee;display:flex;align-items:center;justify-content:center;position:relative;padding:0 calc(var(--bar)*.5);font:500 calc(var(--bar)*.29)/1 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:rgba(0,0,0,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mg-browser__pill img{position:absolute;right:calc(var(--bar)*.18);top:50%;transform:translateY(-50%);height:calc(var(--bar)*.28);width:auto}
+    .mg-browser__view{position:relative;flex:1;min-height:0;overflow:hidden}
+    @media screen and (max-width:479px){.mg-grid{--mg-item:150px;--mg-pad:20px}}
+    @media screen and (max-width:479px){.mg-browser{top:1rem;left:1rem;right:1rem}.mg-browser__bar{--bar:30px}.mg-browser__bar .mg-browser__right{display:none}.mg-browser__pill{margin-right:12px}.mg-browser__left{margin-right:-30px}}
+    @keyframes mgPop{from{opacity:0;scale:.7}to{opacity:1;scale:1}}
+    @media screen and (max-width:767px){.mg-slide{padding:1rem}.mg-case .info_wrap.is-active{display:flex;opacity:1}}
+    @media (prefers-reduced-motion:reduce){.mg-case,.mg-slide,.mg-case .info_wrap{transition:none}.mg-slide.is-board.is-active *{animation:none!important;opacity:1!important}}
+</style>
+
+<script>
+(function(){
+    var wrap=document.querySelector('[data-mg-grid]'); if(!wrap) return;
+    var slide=wrap.closest('.mg-slide'), list=wrap.querySelector('.mg-grid__list');
+    var originals=[].slice.call(list.children).map(function(n){return n.cloneNode(true);});
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // same feel as the Maggese hero grid
+    var OVERSCAN=1, START_OFFSET_Y=.33, POS_LERP=.025, SPEEDS=[1,1,.9], MIN_SCALE=.5, SCALE_LERP=.02;
+    // scripted "drag": velocity in px per frame (60fps) for each move
+    var MOVES=[
+      {at:200,  dur:1700, vx:-3.5, vy:-2.25},  // right to left, and up
+      {at:3900, dur:1300, vx:2.25, vy:-1}      // pause, then back to the right, still up but less
+    ];
+    var cards=[], cardEls=[], size={}, pos={}, sc={c:1,t:1}, raf=null, running=false, last=null, t0=null;
+    function wrapV(v,s){return((v%s)+s)%s;}
+    function indexes(cols,rows){
+      var total=originals.length, idx=[], used=[], cells=[], cc=Math.floor(cols/2), cr=Math.floor(rows/2), r, c;
+      for(r=0;r<rows;r++){idx.push([]);} for(r=0;r<total;r++) used.push(0);
+      for(r=0;r<rows;r++) for(c=0;c<cols;c++) cells.push({r:r,c:c,d:Math.abs(r-cr)+Math.abs(c-cc)});
+      cells.sort(function(a,b){return a.d-b.d;});
+      cells.forEach(function(cell){
+        var r=cell.r,c=cell.c, row=idx[r], up=idx[r-1]||[], dn=idx[r+1]||[];
+        var blocked=[row[c-1],row[c+1],up[c],dn[c],up[c-1],up[c+1],dn[c-1],dn[c+1]];
+        var seed=(r*17+c*31)%total, best=0, bestScore=Infinity;
+        for(var i=0;i<total;i++){var k=(i+seed)%total, s=used[k]*10+Math.abs(k-seed)*.01; if(total>1&&blocked.indexOf(k)>-1) s+=1000; if(s<bestScore){bestScore=s;best=k;}}
+        row[c]=best; used[best]++;
+      });
+      return idx;
+    }
+    function build(){
+      wrap.setAttribute('data-status','loading');
+      list.innerHTML='';
+      var m=originals[0].cloneNode(true); m.style.visibility='hidden'; wrap.appendChild(m);
+      var rect=m.getBoundingClientRect(); m.remove();
+      size.w=rect.width; size.h=rect.height; if(!size.w||!size.h) return false;
+      var W=wrap.clientWidth, H=wrap.clientHeight;
+      var cols=Math.max(1,Math.ceil(W/size.w)+OVERSCAN*2);
+      var rows=Math.max(Math.ceil(H/size.h)+OVERSCAN*2,Math.ceil(originals.length/cols));
+      var idx=indexes(cols,rows), cc=Math.floor(cols/2), cr=Math.floor(rows/2), frag=document.createDocumentFragment();
+      size.tw=cols*size.w; size.th=rows*size.h; cards=[]; cardEls=[];
+      for(var r=0;r<rows;r++) for(var c=0;c<cols;c++){
+        var it=originals[idx[r][c]].cloneNode(true);
+        it.querySelector('img').loading='eager';
+        if(cards.length>=originals.length) it.setAttribute('aria-hidden','true');
+        cards.push({el:it,bx:c*size.w,by:r*size.h,sy:(c-cc)*size.h*START_OFFSET_Y,sp:SPEEDS[c%SPEEDS.length]});
+        cardEls.push(it.firstElementChild); frag.appendChild(it);
+      }
+      list.appendChild(frag);
+      pos.sx=W*.5-cc*size.w-size.w*.5; pos.sy=H*.5-cr*size.h-size.h*.5;
+      requestAnimationFrame(function(){wrap.setAttribute('data-status','idle');});
+      return true;
+    }
+    function reset(){ pos.x=pos.tx=pos.sx; pos.y=pos.ty=pos.sy; sc.c=sc.t=1; render(); }
+    function render(){
+      var ox=size.w*OVERSCAN, oy=size.h*OVERSCAN, dy=pos.y-pos.sy;
+      for(var i=0;i<cards.length;i++){var k=cards[i];
+        var x=wrapV(k.bx+pos.x+ox,size.tw)-ox, y=wrapV(k.by+pos.sy+k.sy+dy*k.sp+oy,size.th)-oy;
+        k.el.style.transform='translate3d('+x+'px,'+y+'px,0)';}
+      var s='scale('+sc.c.toFixed(4)+')'; for(var j=0;j<cardEls.length;j++) cardEls[j].style.transform=s;
+    }
+    function frame(ts){
+      if(!running) return;
+      if(t0===null) t0=ts;
+      var f=last===null?1:Math.min((ts-last)/16.67,3), t=ts-t0, moving=false; last=ts;
+      MOVES.forEach(function(m){
+        if(t>=m.at && t<m.at+m.dur){
+          var e=Math.sin(Math.PI*(t-m.at)/m.dur); // ease in and out of each move
+          moving=true; pos.tx+=m.vx*e*f; pos.ty+=m.vy*e*f;
+          var strength=Math.min(1,Math.max(Math.abs(m.vx),Math.abs(m.vy))*e*3/80);
+          sc.t=1+(MIN_SCALE-1)*strength;
+        }
+      });
+      if(!moving) sc.t=1;
+      pos.x+=(pos.tx-pos.x)*POS_LERP*f; pos.y+=(pos.ty-pos.y)*POS_LERP*f; sc.c+=(sc.t-sc.c)*SCALE_LERP*f;
+      render(); raf=requestAnimationFrame(frame);
+    }
+    function start(){ stop(); reset(); if(reduce) return; running=true; last=null; t0=null; raf=requestAnimationFrame(frame); }
+    function stop(){ running=false; cancelAnimationFrame(raf); }
+    var built=false;
+    function sync(){
+      if(slide.classList.contains('is-active')){ if(!built) built=build(); if(built) start(); }
+      else stop();
+    }
+    new MutationObserver(sync).observe(slide,{attributes:true,attributeFilter:['class']});
+    var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){built=false;sync();},200);});
+    sync();
+  })();
+</script>
+<script>
+(function(){
+    var root=document.querySelector('.mg-case'); if(!root) return;
+    var slides=root.querySelectorAll('.mg-slide'), infos=root.querySelectorAll('.info_wrap');
+    var DUR=4500, i=0, t0=null, running=false, raf;
+    function show(n){
+      i=n;
+      slides.forEach(function(s,k){s.classList.toggle('is-active',k===n);});
+      infos.forEach(function(el,k){el.classList.toggle('is-shy',k!==n);el.classList.toggle('is-active',k===n);
+        var l=el.querySelector('.mg-line'); if(l) l.style.height=(k<n?'100%':'0%');});
+    }
+    function tick(ts){
+      if(!running) return;
+      if(t0===null) t0=ts;
+      var d=+slides[i].getAttribute('data-dur')||DUR, p=Math.min((ts-t0)/d,1), l=infos[i]&&infos[i].querySelector('.mg-line');
+      if(l) l.style.height=(p*100)+'%';
+      if(p>=1){ t0=ts; show((i+1)%slides.length); }
+      raf=requestAnimationFrame(tick);
+    }
+    show(0);
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){root.classList.add('is-in'); if(!running){running=true;t0=null;raf=requestAnimationFrame(tick);}}
+      else{root.classList.remove('is-in'); running=false; cancelAnimationFrame(raf);}
+    });},{threshold:.25});
+    io.observe(root);
+  })();
+</script>

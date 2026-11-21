@@ -2,6 +2,18 @@
 export type Testimonial = { imgClass?: string; name: string; quote: string; quoteMobile?: string; role: string; img: { src: string; srcset?: string; sizes?: string; alt: string; width?: string } };
 
 export const testimonials: Record<string, Testimonial> = {
+  "fabrizio-marino": {
+    "imgClass": "is-anne",
+    "name": "Fabrizio Marino",
+    "quote": "Mattia understood Maggese from the very first conversation: our kitchen, our producers, our way of welcoming guests. He turned it into <strong>a brand and a website that feel like us</strong>, and our <strong>guests now book with confidence</strong>.",
+    "quoteMobile": "Mattia turned Maggese into <strong>a brand and a website that feel like us</strong>.",
+    "role": "Chef &amp; Founder <span class=\"purple_highlight\">Maggese</span>",
+    "img": {
+      "src": "/images/client_fabrizio.jpg",
+      "alt": "Black and white photo of Chef Fabrizio Marino plating a dish in the Maggese kitchen.",
+      "width": "400"
+    }
+  },
   "joseph-klatt": {
     "name": "Joseph Klatt",
     "quote": "I couldn't imagine working with someone more <strong>creative and professional</strong> than Mattia for our website.",
